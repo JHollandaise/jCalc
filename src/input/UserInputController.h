@@ -11,9 +11,13 @@
 
 #include "Button.h"
 #include "../InputDefs.h"
+#include "buttonMaps/Maths.h"
+#include "../ErrorMgt/Error.h"
 
 #ifdef TERMINAL_EMULATE
 #include <curses.h>
+#include <error.h>
+
 #endif
 
 /* Controls the inflow of data from the user
@@ -24,7 +28,9 @@
 class UserInputController {
 
 public:
-    UserInputController() : shiftPressed(false), alphaPressed(false), recallPressed(false), lastButtonPress((char)255) {};
+    UserInputController() : currentButtonMap(&ButtonMapMaths::Default),
+                            shiftPressed(false), alphaPressed(false),
+                            recallPressed(false), lastButtonPress((char)255) {};
 
     // listens for a user button press then returns the value of the button pressed
     char GetUserInput();
@@ -37,8 +43,13 @@ public:
 
     char GetLastButtonPress() {return lastButtonPress;}
 
+    std::map<char,short>* GetCurrentButtonMap() { return currentButtonMap;}
+    Error SetCurrentButtonMap();
+
 
 private:
+
+    std::map<char,short>* currentButtonMap;
 
     bool shiftPressed;
     bool alphaPressed;

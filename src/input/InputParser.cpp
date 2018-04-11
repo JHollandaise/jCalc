@@ -4,7 +4,7 @@
 
 #include "InputParser.h"
 
-Error InputParser::AddToStream(Button* button)
+Error InputParser::AddToStream(Button button)
 {
     //TODO: implement AddToStream
     return{};

@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/joseph/opt/clion-2018.1.1/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
+RM = /home/joseph/opt/clion-2018.1.1/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/josephholland/Documents/jCalc
+CMAKE_SOURCE_DIR = /home/joseph/CLionProjects/jCalc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/josephholland/Documents/jCalc/cmake-build-debug
+CMAKE_BINARY_DIR = /home/joseph/CLionProjects/jCalc/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/jCalc.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/jCalc.dir/flags.make
 
 CMakeFiles/jCalc.dir/src/core/main.cpp.o: CMakeFiles/jCalc.dir/flags.make
 CMakeFiles/jCalc.dir/src/core/main.cpp.o: ../src/core/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/josephholland/Documents/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/jCalc.dir/src/core/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/core/main.cpp.o -c /Users/josephholland/Documents/jCalc/src/core/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/CLionProjects/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/jCalc.dir/src/core/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/core/main.cpp.o -c /home/joseph/CLionProjects/jCalc/src/core/main.cpp
 
 CMakeFiles/jCalc.dir/src/core/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jCalc.dir/src/core/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/josephholland/Documents/jCalc/src/core/main.cpp > CMakeFiles/jCalc.dir/src/core/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/CLionProjects/jCalc/src/core/main.cpp > CMakeFiles/jCalc.dir/src/core/main.cpp.i
 
 CMakeFiles/jCalc.dir/src/core/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jCalc.dir/src/core/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/josephholland/Documents/jCalc/src/core/main.cpp -o CMakeFiles/jCalc.dir/src/core/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/CLionProjects/jCalc/src/core/main.cpp -o CMakeFiles/jCalc.dir/src/core/main.cpp.s
 
 CMakeFiles/jCalc.dir/src/core/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/jCalc.dir/src/core/main.cpp.o.provides.build: CMakeFiles/jCalc.dir/sr
 
 CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.o: CMakeFiles/jCalc.dir/flags.make
 CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.o: ../src/input/UserInputController.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/josephholland/Documents/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.o -c /Users/josephholland/Documents/jCalc/src/input/UserInputController.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/CLionProjects/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.o -c /home/joseph/CLionProjects/jCalc/src/input/UserInputController.cpp
 
 CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/josephholland/Documents/jCalc/src/input/UserInputController.cpp > CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/CLionProjects/jCalc/src/input/UserInputController.cpp > CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.i
 
 CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/josephholland/Documents/jCalc/src/input/UserInputController.cpp -o CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/CLionProjects/jCalc/src/input/UserInputController.cpp -o CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.s
 
 CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/jCalc.dir/src/input/UserInputController.cpp.o.provides.build: CMakeFi
 
 CMakeFiles/jCalc.dir/src/core/Calculator.cpp.o: CMakeFiles/jCalc.dir/flags.make
 CMakeFiles/jCalc.dir/src/core/Calculator.cpp.o: ../src/core/Calculator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/josephholland/Documents/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/jCalc.dir/src/core/Calculator.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/core/Calculator.cpp.o -c /Users/josephholland/Documents/jCalc/src/core/Calculator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/CLionProjects/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/jCalc.dir/src/core/Calculator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/core/Calculator.cpp.o -c /home/joseph/CLionProjects/jCalc/src/core/Calculator.cpp
 
 CMakeFiles/jCalc.dir/src/core/Calculator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jCalc.dir/src/core/Calculator.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/josephholland/Documents/jCalc/src/core/Calculator.cpp > CMakeFiles/jCalc.dir/src/core/Calculator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/CLionProjects/jCalc/src/core/Calculator.cpp > CMakeFiles/jCalc.dir/src/core/Calculator.cpp.i
 
 CMakeFiles/jCalc.dir/src/core/Calculator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jCalc.dir/src/core/Calculator.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/josephholland/Documents/jCalc/src/core/Calculator.cpp -o CMakeFiles/jCalc.dir/src/core/Calculator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/CLionProjects/jCalc/src/core/Calculator.cpp -o CMakeFiles/jCalc.dir/src/core/Calculator.cpp.s
 
 CMakeFiles/jCalc.dir/src/core/Calculator.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/jCalc.dir/src/core/Calculator.cpp.o.provides.build: CMakeFiles/jCalc.
 
 CMakeFiles/jCalc.dir/src/input/InputParser.cpp.o: CMakeFiles/jCalc.dir/flags.make
 CMakeFiles/jCalc.dir/src/input/InputParser.cpp.o: ../src/input/InputParser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/josephholland/Documents/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/jCalc.dir/src/input/InputParser.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/input/InputParser.cpp.o -c /Users/josephholland/Documents/jCalc/src/input/InputParser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/CLionProjects/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/jCalc.dir/src/input/InputParser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/input/InputParser.cpp.o -c /home/joseph/CLionProjects/jCalc/src/input/InputParser.cpp
 
 CMakeFiles/jCalc.dir/src/input/InputParser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jCalc.dir/src/input/InputParser.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/josephholland/Documents/jCalc/src/input/InputParser.cpp > CMakeFiles/jCalc.dir/src/input/InputParser.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/CLionProjects/jCalc/src/input/InputParser.cpp > CMakeFiles/jCalc.dir/src/input/InputParser.cpp.i
 
 CMakeFiles/jCalc.dir/src/input/InputParser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jCalc.dir/src/input/InputParser.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/josephholland/Documents/jCalc/src/input/InputParser.cpp -o CMakeFiles/jCalc.dir/src/input/InputParser.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/CLionProjects/jCalc/src/input/InputParser.cpp -o CMakeFiles/jCalc.dir/src/input/InputParser.cpp.s
 
 CMakeFiles/jCalc.dir/src/input/InputParser.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/jCalc.dir/src/input/InputParser.cpp.o.provides.build: CMakeFiles/jCal
 
 CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.o: CMakeFiles/jCalc.dir/flags.make
 CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.o: ../src/GUI/GraphicsStream.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/josephholland/Documents/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.o -c /Users/josephholland/Documents/jCalc/src/GUI/GraphicsStream.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/CLionProjects/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.o -c /home/joseph/CLionProjects/jCalc/src/GUI/GraphicsStream.cpp
 
 CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/josephholland/Documents/jCalc/src/GUI/GraphicsStream.cpp > CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/CLionProjects/jCalc/src/GUI/GraphicsStream.cpp > CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.i
 
 CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/josephholland/Documents/jCalc/src/GUI/GraphicsStream.cpp -o CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/CLionProjects/jCalc/src/GUI/GraphicsStream.cpp -o CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.s
 
 CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/jCalc.dir/src/GUI/GraphicsStream.cpp.o.provides.build: CMakeFiles/jCa
 
 CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.o: CMakeFiles/jCalc.dir/flags.make
 CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.o: ../src/core/FunctionStream.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/josephholland/Documents/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.o -c /Users/josephholland/Documents/jCalc/src/core/FunctionStream.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/CLionProjects/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.o -c /home/joseph/CLionProjects/jCalc/src/core/FunctionStream.cpp
 
 CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/josephholland/Documents/jCalc/src/core/FunctionStream.cpp > CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/CLionProjects/jCalc/src/core/FunctionStream.cpp > CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.i
 
 CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/josephholland/Documents/jCalc/src/core/FunctionStream.cpp -o CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/CLionProjects/jCalc/src/core/FunctionStream.cpp -o CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.s
 
 CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.o.provides.build: CMakeFiles/jC
 
 CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.o: CMakeFiles/jCalc.dir/flags.make
 CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.o: ../src/ErrorMgt/Error.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/josephholland/Documents/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.o -c /Users/josephholland/Documents/jCalc/src/ErrorMgt/Error.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/CLionProjects/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.o -c /home/joseph/CLionProjects/jCalc/src/ErrorMgt/Error.cpp
 
 CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/josephholland/Documents/jCalc/src/ErrorMgt/Error.cpp > CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/CLionProjects/jCalc/src/ErrorMgt/Error.cpp > CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.i
 
 CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/josephholland/Documents/jCalc/src/ErrorMgt/Error.cpp -o CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/CLionProjects/jCalc/src/ErrorMgt/Error.cpp -o CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.s
 
 CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/jCalc.dir/src/ErrorMgt/Error.cpp.o.provides.build: CMakeFiles/jCalc.d
 
 CMakeFiles/jCalc.dir/src/init/TermInit.cpp.o: CMakeFiles/jCalc.dir/flags.make
 CMakeFiles/jCalc.dir/src/init/TermInit.cpp.o: ../src/init/TermInit.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/josephholland/Documents/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/jCalc.dir/src/init/TermInit.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/init/TermInit.cpp.o -c /Users/josephholland/Documents/jCalc/src/init/TermInit.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/CLionProjects/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/jCalc.dir/src/init/TermInit.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/init/TermInit.cpp.o -c /home/joseph/CLionProjects/jCalc/src/init/TermInit.cpp
 
 CMakeFiles/jCalc.dir/src/init/TermInit.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jCalc.dir/src/init/TermInit.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/josephholland/Documents/jCalc/src/init/TermInit.cpp > CMakeFiles/jCalc.dir/src/init/TermInit.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/CLionProjects/jCalc/src/init/TermInit.cpp > CMakeFiles/jCalc.dir/src/init/TermInit.cpp.i
 
 CMakeFiles/jCalc.dir/src/init/TermInit.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jCalc.dir/src/init/TermInit.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/josephholland/Documents/jCalc/src/init/TermInit.cpp -o CMakeFiles/jCalc.dir/src/init/TermInit.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/CLionProjects/jCalc/src/init/TermInit.cpp -o CMakeFiles/jCalc.dir/src/init/TermInit.cpp.s
 
 CMakeFiles/jCalc.dir/src/init/TermInit.cpp.o.requires:
 
@@ -251,16 +251,16 @@ CMakeFiles/jCalc.dir/src/init/TermInit.cpp.o.provides.build: CMakeFiles/jCalc.di
 
 CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.o: CMakeFiles/jCalc.dir/flags.make
 CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.o: ../src/init/Initialiser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/josephholland/Documents/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.o -c /Users/josephholland/Documents/jCalc/src/init/Initialiser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/CLionProjects/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.o -c /home/joseph/CLionProjects/jCalc/src/init/Initialiser.cpp
 
 CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/josephholland/Documents/jCalc/src/init/Initialiser.cpp > CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/CLionProjects/jCalc/src/init/Initialiser.cpp > CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.i
 
 CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/josephholland/Documents/jCalc/src/init/Initialiser.cpp -o CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/CLionProjects/jCalc/src/init/Initialiser.cpp -o CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.s
 
 CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.o.requires:
 
@@ -275,16 +275,16 @@ CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.o.provides.build: CMakeFiles/jCalc
 
 CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.o: CMakeFiles/jCalc.dir/flags.make
 CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.o: ../src/init/MbedInit.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/josephholland/Documents/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.o -c /Users/josephholland/Documents/jCalc/src/init/MbedInit.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/CLionProjects/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.o -c /home/joseph/CLionProjects/jCalc/src/init/MbedInit.cpp
 
 CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/josephholland/Documents/jCalc/src/init/MbedInit.cpp > CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/CLionProjects/jCalc/src/init/MbedInit.cpp > CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.i
 
 CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/josephholland/Documents/jCalc/src/init/MbedInit.cpp -o CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/CLionProjects/jCalc/src/init/MbedInit.cpp -o CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.s
 
 CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.o.requires:
 
@@ -325,7 +325,7 @@ jCalc: CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.o
 jCalc: CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.o
 jCalc: CMakeFiles/jCalc.dir/build.make
 jCalc: CMakeFiles/jCalc.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/josephholland/Documents/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable jCalc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/joseph/CLionProjects/jCalc/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable jCalc"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/jCalc.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -351,6 +351,6 @@ CMakeFiles/jCalc.dir/clean:
 .PHONY : CMakeFiles/jCalc.dir/clean
 
 CMakeFiles/jCalc.dir/depend:
-	cd /Users/josephholland/Documents/jCalc/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/josephholland/Documents/jCalc /Users/josephholland/Documents/jCalc /Users/josephholland/Documents/jCalc/cmake-build-debug /Users/josephholland/Documents/jCalc/cmake-build-debug /Users/josephholland/Documents/jCalc/cmake-build-debug/CMakeFiles/jCalc.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/joseph/CLionProjects/jCalc/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/joseph/CLionProjects/jCalc /home/joseph/CLionProjects/jCalc /home/joseph/CLionProjects/jCalc/cmake-build-debug /home/joseph/CLionProjects/jCalc/cmake-build-debug /home/joseph/CLionProjects/jCalc/cmake-build-debug/CMakeFiles/jCalc.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/jCalc.dir/depend
 

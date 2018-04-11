@@ -8,7 +8,7 @@
 #include <map>
 
 namespace ButtonMapMaths{
-    static const std::map<char,short> Default {
+    static std::map<char,short> Default {
             // numOne, numTwo, numThree, add, subtract, NULL, equals,
             {0,0x0001},{1,0x0002},{2,0x0003},{3,0x0200},{4,0x0201},{5,0xFF00},{6,0x1000},
             // numFour, numFive, numSix, multiply, divide, NULL15, prevAns,
@@ -27,13 +27,13 @@ namespace ButtonMapMaths{
             {70,0x1201},{71,0x1202},{72,0x1502},{73,0x1503},{74,0x1401},{75,0xFF00},{76,0xFF00}
     };
 
-    static const std::map<char,short> Shift {
+    static std::map<char,short> Shift {
 //          NULL0, NULL1, NULL2, polar, rec, NULL5, aprrox,
             {0,0xFF00},{1,0xFF00},{2,0xFF00},{3,0x2205},{4,0x2206},{5,0xFF00},{6,0x1302},
 //          NULL10 = 10, NULL11, NULL12, permutate, combine, NULL15, angleSym,
             {10,0xFF00},{11,0xFF00},{12,0xFF00},{13,0x2500},{14,0x2501},{15,0xFF00},{16,0x1402},
 //          Constant = 20 , convert, clear, insert, off, NULL25, pi,
-            {20,0x1403},{21,0x1404},{22,0x1405},{23,0x1600},{24,0x1700},{25,0xFF00},{26,0x06##}, // TODO: implement const storage
+            {20,0x1403},{21,0x1404},{22,0x1405},{23,0x1600},{24,0x1700},{25,0xFF00},{26,0x0610}, // TODO: implement const storage
 //          store = 30, NULL31, percent, comma, properImproper, varMMinus, ranNum,
             {30,0x1003},{31,0xFF00},{32,0x2603},{33,0x0400},{34,0x1303},{35,0x1004},{36,0x2700},
 //          NULL40 = 40 ,NULL41, absolute, inverseSine, inverseCosine, inverseTangent, round,
@@ -45,7 +45,7 @@ namespace ButtonMapMaths{
 //          NULL70 = 70, NULL71, NULL72, NULL73, NULL74, NULL75, NULL76,
             {70,0xFF00},{71,0xFF00},{72,0xFF00},{73,0xFF00},{74,0xFF00},{75,0xFF00},{76,0xFF00}
     };
-    static const std::map<char,char> Alpha {
+    static std::map<char,char> Alpha {
             {0,0xFF00}, {1,0xFF00}, {2,0xFF00}, {3,0xFF00}, {4,0xFF00}, {5,0xFF00}, {6,0xFF00},
             {10,0xFF00},{11,0xFF00},{12,0xFF00},{13,0xFF00},{14,0xFF00},{15,0xFF00},{16,0xFF00},
             {20,0xFF00},{21,0xFF00},{22,0xFF00},{23,0xFF00},{24,0xFF00},{25,0xFF00},{26,0xFF00},
