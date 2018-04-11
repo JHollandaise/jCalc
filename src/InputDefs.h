@@ -78,7 +78,7 @@ namespace InputDefs {
     enum class ButtonDefsShift {
         NULL0, NULL1, NULL2, polar, rec, NULL5, aprrox,
         NULL10 = 10, NULL11, NULL12, permutate, combine, NULL15, angleSym,
-        Ccnstant = 20 , convert, clear, insert, off, NULL25, pi,
+        Constant = 20 , convert, clear, insert, off, NULL25, pi,
         store = 30, NULL31, percent, comma, properImproper, varMMinus, ranNum,
         NULL40 = 40 ,NULL41, absolute, inverseSine, inverseCosine, inverseTangent, round,
         improperFraction = 50, cubeRoot, cube, rootN, tenPower, ePower, NULL56,

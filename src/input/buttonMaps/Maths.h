@@ -28,23 +28,36 @@ namespace ButtonMapMaths{
     };
 
     static const std::map<char,short> Shift {
-            {0,},{1,},{2,},{3,},{4,},{5,},{6,},
-
-            {10,},{11,},{12,},{13,},{14,},{15,},{16,},
-
-            {20,},{21,},{22,},{23,},{24,},{25,},{26,},
-
-            {30,},{31,},{32,},{33,},{34,},{35,},{36,},
-
-            {40,},{41,},{42,},{43,},{44,},{45,},{46,},
-
-            {50,},{51,},{52,},{53,},{54,},{55,},{56,},
-
-            {60,},{61,},{62,},{63,},{64,},{65,},{66,},
-
-            {70,},{71,},{72,},{73,},{74,},{75,},{76,}
+//          NULL0, NULL1, NULL2, polar, rec, NULL5, aprrox,
+            {0,0xFF00},{1,0xFF00},{2,0xFF00},{3,0x2205},{4,0x2206},{5,0xFF00},{6,0x1302},
+//          NULL10 = 10, NULL11, NULL12, permutate, combine, NULL15, angleSym,
+            {10,0xFF00},{11,0xFF00},{12,0xFF00},{13,0x2500},{14,0x2501},{15,0xFF00},{16,0x1402},
+//          Constant = 20 , convert, clear, insert, off, NULL25, pi,
+            {20,0x1403},{21,0x1404},{22,0x1405},{23,0x1600},{24,0x1700},{25,0xFF00},{26,0x06##}, // TODO: implement const storage
+//          store = 30, NULL31, percent, comma, properImproper, varMMinus, ranNum,
+            {30,0x1003},{31,0xFF00},{32,0x2603},{33,0x0400},{34,0x1303},{35,0x1004},{36,0x2700},
+//          NULL40 = 40 ,NULL41, absolute, inverseSine, inverseCosine, inverseTangent, round,
+            {40,0xFF00},{41,0xFF00},{42,0x2304},{43,0x2207},{44,0x2208},{45,0x2209},{46,0x220A},
+//          improperFraction = 50, cubeRoot, cube, rootN, tenPower, ePower, NULL56,
+            {50,0x2305},{51,0x2306},{52,0x2403},{53,0x2307},{54,0x2308},{55,0x2309},{56,0xFF00},
+//          solve = 60, differentiate, NULL62, NULL63, factorial, sum, NULL66,
+            {60,0x1005},{61,0x230A},{62,0xFF00},{63,0xFF00},{64,0x2604},{65,0x230B},{66,0xFF00},
+//          NULL70 = 70, NULL71, NULL72, NULL73, NULL74, NULL75, NULL76,
+            {70,0xFF00},{71,0xFF00},{72,0xFF00},{73,0xFF00},{74,0xFF00},{75,0xFF00},{76,0xFF00}
+    };
+    static const std::map<char,char> Alpha {
+            {0,0xFF00}, {1,0xFF00}, {2,0xFF00}, {3,0xFF00}, {4,0xFF00}, {5,0xFF00}, {6,0xFF00},
+            {10,0xFF00},{11,0xFF00},{12,0xFF00},{13,0xFF00},{14,0xFF00},{15,0xFF00},{16,0xFF00},
+            {20,0xFF00},{21,0xFF00},{22,0xFF00},{23,0xFF00},{24,0xFF00},{25,0xFF00},{26,0xFF00},
+                                             // VarX        VarY        VarM        randInt
+            {30,0xFF00},{31,0xFF00},{32,0xFF00},{33,0x0600},{34,0x0601},{35,0x0602},{36,0x220B},
+//          VarA        VarB        VarC        VarD        VarE        VarF
+            {40,0x0603},{41,0x0604},{42,0x0605},{43,0x0606},{44,0x0607},{45,0x0608},{46,0xFF00},
+            {50,0xFF00},{51,0xFF00},{52,0xFF00},{53,0xFF00},{54,0xFF00},{55,0xFF00},{56,0xFF00},
+//          '='         colon
+            {60,0x0901},{61,0x0900},{62,0xFF00},{63,0xFF00},{64,0xFF00},{65,0xFF00},{66,0xFF00},
+            {70,0xFF00},{71,0xFF00},{72,0xFF00},{73,0xFF00},{74,0xFF00},{75,0xFF00},{76,0xFF00}
     };
 
 }
-
 #endif //JCALC_BUTTONDEFS_H
