@@ -16,7 +16,7 @@ namespace InputDefs {
 
 
 #ifdef TERMINAL_EMULATE
-    static std::map<int,char> KeypressMap{
+    static std::map<int,unsigned char> KeypressMap{
             {'1',0}, {'2',1}, {'3',2}, {'+',3}, {'-',4}, {0527,6}/*evaluate*/,
             {'4',10}, {'5',11}, {'6',12}, {'*',13}, {'/',14}, {'~',16},
             {'7',20}, {'8',21}, {'9',22}, {0x08,23} /*DEL*/, {0177,24}/*AC*/,{'c',26}/*x10x*/,
@@ -66,7 +66,7 @@ namespace InputDefs {
     };
 
     enum class ButtonDefs {
-        numOne, numTwo, numThree, add, subtract, NULL5, equals,
+        numOne = 0, numTwo, numThree, add, subtract, NULL5, equals,
         numFour = 10, numFive, numSix, multiply, divide, NULL15, prevAns,
         numSeven = 20 , numEight, numNine, delChar, allClear, NULL25, timesTenPow,
         recall = 30, eng, leftParen, rightParen, fractionDecimal, varMPlus, decimal,

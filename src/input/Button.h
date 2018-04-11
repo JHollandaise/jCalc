@@ -12,13 +12,13 @@
 
 struct Button {
 
-    Button(int _modifier, char _value):modifier(_modifier), value(_value) {}
+    Button(unsigned char _modifier, unsigned char _value):modifier(_modifier), value(_value) {}
 
     Button():modifier((char)255),value((char)255) {}
 
-    char modifier;
+    unsigned char modifier;
 
-    char value;
+    unsigned char value;
 
 
 };

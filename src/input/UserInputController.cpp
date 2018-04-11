@@ -9,13 +9,13 @@
 
 #ifdef TERMINAL_EMULATE
 
-char UserInputController::GetUserInput() {
+unsigned char UserInputController::GetUserInput() {
 
     int userKeypress(getch());
 
     if(InputDefs::KeypressMap[userKeypress]) return lastButtonPress = InputDefs::KeypressMap[userKeypress];
-
-    else return lastButtonPress = (char)255;
+    else if (userKeypress=='1') return lastButtonPress = (unsigned char)0;
+    else return lastButtonPress = (unsigned char)255;
 
 }
 #else

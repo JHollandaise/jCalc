@@ -16,7 +16,6 @@
 
 #ifdef TERMINAL_EMULATE
 #include <curses.h>
-#include <error.h>
 
 #endif
 
@@ -33,15 +32,15 @@ public:
                             recallPressed(false), lastButtonPress((char)255) {};
 
     // listens for a user button press then returns the value of the button pressed
-    char GetUserInput();
+    unsigned char GetUserInput();
 
     bool GetShiftPressed()  {return shiftPressed;}
     bool GetAlphaPressed()  {return alphaPressed;}
     bool GetRecallPressed() {return recallPressed;}
 
-    char GetModifier() {return shiftPressed + (alphaPressed << 1) + (recallPressed<<2);}
+    unsigned char GetModifier() {return shiftPressed + (alphaPressed << 1) + (recallPressed<<2);}
 
-    char GetLastButtonPress() {return lastButtonPress;}
+    unsigned char GetLastButtonPress() {return lastButtonPress;}
 
     std::map<char,short>* GetCurrentButtonMap() { return currentButtonMap;}
     Error SetCurrentButtonMap();
@@ -56,7 +55,7 @@ private:
 
     bool recallPressed;
 
-    char lastButtonPress;
+    unsigned char lastButtonPress;
 
 };
 
