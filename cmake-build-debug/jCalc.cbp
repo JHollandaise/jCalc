@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="jCalc"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/josephholland/Documents/jCalc/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/josephholland/Documents/jCalc/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/josephholland/Documents/jCalc/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="jCalc">
+				<Option output="/Users/josephholland/Documents/jCalc/cmake-build-debug/jCalc" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/josephholland/Documents/jCalc/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/7.0.2/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 jCalc"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="jCalc/fast">
+				<Option output="/Users/josephholland/Documents/jCalc/cmake-build-debug/jCalc" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/josephholland/Documents/jCalc/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../lib/clang/7.0.2/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 jCalc/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/josephholland/Documents/jCalc/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/ErrorMgt/Error.cpp">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/ErrorMgt/Error.h">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/GUI/GraphicsStream.cpp">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/GUI/GraphicsStream.h">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/InputDefs.h">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/core/Calculator.cpp">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/core/Calculator.h">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/core/FunctionStream.cpp">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/core/FunctionStream.h">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/core/main.cpp">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/init/Initialiser.cpp">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/init/Initialiser.h">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/init/MbedInit.cpp">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/init/MbedInit.h">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/init/TermInit.cpp">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/init/TermInit.h">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/input/Button.h">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/input/InputParser.cpp">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/input/InputParser.h">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/input/UserInputController.cpp">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/input/UserInputController.h">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/src/input/buttonMaps/Maths.h">
+			<Option target="jCalc"/>
+		</Unit>
+		<Unit filename="/Users/josephholland/Documents/jCalc/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
