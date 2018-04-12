@@ -35,7 +35,6 @@ public:
     unsigned short GetUserInput(std::map<unsigned char, unsigned short>* buttonMap);
     unsigned short GetUserInput();
 
-    unsigned short GetUser
 
     bool GetShiftPressed()  {return shiftPressed;}
     bool GetAlphaPressed()  {return alphaPressed;}

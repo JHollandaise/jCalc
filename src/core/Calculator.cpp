@@ -2,13 +2,14 @@
 // Created by Joseph Holland  on 09/04/2018.
 //
 
-#include <iostream>
 #include "Calculator.h"
 #include "../input/buttonMaps/Maths.h"
 #include "../input/buttonMaps/Menu.h"
 
 
 Error Calculator::ManageUserInput(bool getInput) {
+
+    unsigned short menuSelection(0x0000);
 
     // get new user input
     if (getInput){
@@ -20,23 +21,27 @@ Error Calculator::ManageUserInput(bool getInput) {
     // NULL token
     if(currentButtonToken == 0x0000) return {};
 
-    // simple tokens (add to stream)
+    // simple tokens and functions (add to stream)
     if (
-        // simple symbols
-            currentButtonToken>0x00FF && currentButtonToken<0x1000 ||
-        // TYPE0 - TYPE2 functions
-            currentButtonToken>0x2000 && currentButtonToken<=0x220B ||
-        // TYPE4 - TYPE7 functions
-            currentButtonToken>0x2500 && currentButtonToken<=0x2700
-        )
-        return inputParser.AddToStream(currentButtonToken,&inputMethod);
+        // simple single tokens
+        ((currentButtonToken & 0xFF00U) == 0x1000) ||
+
+        // simple functions
+        // Type 0 - Type 2
+        ( ((currentButtonToken & 0xFF00U) >= 0x2000) && ((currentButtonToken & 0xFF00U) < 0x2300) ) ||
+        // Type 5 - Type 7
+        ( ((currentButtonToken & 0xFF00U) >= 0x2500) && ((currentButtonToken & 0xFF00U) < 0x2800) )
+    )
+        return inputParser.AddToStream(currentButtonToken, &inputMethod);
 
     // open menu
     // TODO: implement special menus
-    if ( (currentButtonToken & 0xFF00) == 0x1400 ) {
-        while(!(currentButtonToken = GetMenuToken(0))){
+    if ( (currentButtonToken & 0xFF00U) == 0x5400 ) {
+        while(!(menuSelection = GetMenuToken(0))){
             // TODO: implement incorrect option flash
         }
+        currentButtonToken = menuSelection;
+
         return ManageUserInput(false);
     }
 
@@ -65,37 +70,37 @@ unsigned short Calculator::GetMenuToken(unsigned char page, unsigned short selec
 
     switch (selectedOption){
         // hyperbolic menu
-        case 0x1400 :
+        case 0x5400 :
             menuMap = &ButtonMapMenu::Hyperbolic;
             break;
 
         // mode menu
-        case 0x1401 :
+        case 0x5401 :
             menuMap = &ButtonMapMenu::Mode;
             break;
 
         // DRG menu
-        case 0x1402:
+        case 0x5402:
             menuMap = &ButtonMapMenu::DRG;
             break;
 
         // const menu
-        case 0x1403 :
+        case 0x5403 :
             menuMap = &ButtonMapMenu::ConstantCategory;
             break;
 
         // conv menu
-        case 0x1404:
+        case 0x5404:
             menuMap = &ButtonMapMenu::ConvertCategory;
             break;
 
         // clear menu
-        case 0x1405:
+        case 0x5405:
             menuMap = &ButtonMapMenu::Clear;
             break;
 
         // setup menu
-        case 0x1406:
+        case 0x5406:
             menuMap = &ButtonMapMenu::SetupCategory;
             break;
 
@@ -153,7 +158,7 @@ unsigned short Calculator::GetMenuToken(unsigned char page, unsigned short selec
 
     // check for page change
     // page up
-    if(newSelection == 0x1501) {
+    if(newSelection == 0x5502) {
         // get the menu for the same selectedOption but prev page
         if(page) return GetMenuToken(page - (char)1,selectedOption);
 
@@ -161,7 +166,7 @@ unsigned short Calculator::GetMenuToken(unsigned char page, unsigned short selec
         return GetMenuToken(page,selectedOption);
     }
     // page down
-    else if(newSelection == 0x1502) {
+    else if(newSelection == 0x5501) {
         // get the menu for the same selectedOption but next page
         if(page + 1 != menuMap->size() ) return GetMenuToken(page + (char)1, selectedOption);
 
@@ -175,8 +180,6 @@ unsigned short Calculator::GetMenuToken(unsigned char page, unsigned short selec
         // get correct lower depth menu page
         return GetMenuToken( (unsigned char)(newSelection & (0x00FFU) ), newSelection);
     }
-
-    // TODO: implement AC escape option
 
     // newSelection is a selectable option
     else return newSelection;
