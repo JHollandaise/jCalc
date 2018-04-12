@@ -16,9 +16,13 @@ CMakeFiles/jCalc.dir/src/core/Calculator.cpp.o: ../src/input/Button.h
 CMakeFiles/jCalc.dir/src/core/Calculator.cpp.o: ../src/input/InputParser.h
 CMakeFiles/jCalc.dir/src/core/Calculator.cpp.o: ../src/input/UserInputController.h
 CMakeFiles/jCalc.dir/src/core/Calculator.cpp.o: ../src/input/buttonMaps/Maths.h
+CMakeFiles/jCalc.dir/src/core/Calculator.cpp.o: ../src/input/buttonMaps/Menu.h
 
 CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.o: ../src/core/FunctionStream.cpp
 CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.o: ../src/core/FunctionStream.h
+
+CMakeFiles/jCalc.dir/src/core/MemoryMgr.cpp.o: ../src/core/MemoryMgr.cpp
+CMakeFiles/jCalc.dir/src/core/MemoryMgr.cpp.o: ../src/core/MemoryMgr.h
 
 CMakeFiles/jCalc.dir/src/core/main.cpp.o: ../src/ErrorMgt/Error.h
 CMakeFiles/jCalc.dir/src/core/main.cpp.o: ../src/GUI/GraphicsStream.h

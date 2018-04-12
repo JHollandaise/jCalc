@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/joseph/opt/clion-2018.1.1/bin/cmake/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/joseph/opt/clion-2018.1.1/bin/cmake/bin/cmake -E remove -f
+RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/joseph/CLionProjects/jCalc
+CMAKE_SOURCE_DIR = /Users/josephholland/Documents/jCalc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/joseph/CLionProjects/jCalc/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/josephholland/Documents/jCalc/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/joseph/CLionProjects/jCalc/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/joseph/opt/clion-2018.1.1/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/joseph/opt/clion-2018.1.1/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/Applications/CLion.app/Contents/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joseph/CLionProjects/jCalc/cmake-build-debug/CMakeFiles /home/joseph/CLionProjects/jCalc/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/josephholland/Documents/jCalc/cmake-build-debug/CMakeFiles /Users/josephholland/Documents/jCalc/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joseph/CLionProjects/jCalc/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/josephholland/Documents/jCalc/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -230,6 +230,33 @@ src/core/FunctionStream.s: src/core/FunctionStream.cpp.s
 src/core/FunctionStream.cpp.s:
 	$(MAKE) -f CMakeFiles/jCalc.dir/build.make CMakeFiles/jCalc.dir/src/core/FunctionStream.cpp.s
 .PHONY : src/core/FunctionStream.cpp.s
+
+src/core/MemoryMgr.o: src/core/MemoryMgr.cpp.o
+
+.PHONY : src/core/MemoryMgr.o
+
+# target to build an object file
+src/core/MemoryMgr.cpp.o:
+	$(MAKE) -f CMakeFiles/jCalc.dir/build.make CMakeFiles/jCalc.dir/src/core/MemoryMgr.cpp.o
+.PHONY : src/core/MemoryMgr.cpp.o
+
+src/core/MemoryMgr.i: src/core/MemoryMgr.cpp.i
+
+.PHONY : src/core/MemoryMgr.i
+
+# target to preprocess a source file
+src/core/MemoryMgr.cpp.i:
+	$(MAKE) -f CMakeFiles/jCalc.dir/build.make CMakeFiles/jCalc.dir/src/core/MemoryMgr.cpp.i
+.PHONY : src/core/MemoryMgr.cpp.i
+
+src/core/MemoryMgr.s: src/core/MemoryMgr.cpp.s
+
+.PHONY : src/core/MemoryMgr.s
+
+# target to generate assembly for a file
+src/core/MemoryMgr.cpp.s:
+	$(MAKE) -f CMakeFiles/jCalc.dir/build.make CMakeFiles/jCalc.dir/src/core/MemoryMgr.cpp.s
+.PHONY : src/core/MemoryMgr.cpp.s
 
 src/core/main.o: src/core/main.cpp.o
 
@@ -414,6 +441,9 @@ help:
 	@echo "... src/core/FunctionStream.o"
 	@echo "... src/core/FunctionStream.i"
 	@echo "... src/core/FunctionStream.s"
+	@echo "... src/core/MemoryMgr.o"
+	@echo "... src/core/MemoryMgr.i"
+	@echo "... src/core/MemoryMgr.s"
 	@echo "... src/core/main.o"
 	@echo "... src/core/main.i"
 	@echo "... src/core/main.s"

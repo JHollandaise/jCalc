@@ -9,6 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/jCalc.dir/src/init/TermInit.cpp.o"
   "CMakeFiles/jCalc.dir/src/init/Initialiser.cpp.o"
   "CMakeFiles/jCalc.dir/src/init/MbedInit.cpp.o"
+  "CMakeFiles/jCalc.dir/src/core/MemoryMgr.cpp.o"
   "jCalc.pdb"
   "jCalc"
 )

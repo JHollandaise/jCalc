@@ -1,4 +1,4 @@
-/home/joseph/opt/clion-2018.1.1/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/joseph/CLionProjects/jCalc
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/josephholland/Documents/jCalc
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/joseph/CLionProjects/jCalc/cmake-build-debug
+-- Build files have been written to: /Users/josephholland/Documents/jCalc/cmake-build-debug
