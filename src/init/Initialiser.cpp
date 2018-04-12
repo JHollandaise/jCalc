@@ -15,9 +15,9 @@ void Initialiser::Initialise() {
     mbedInit = MbedInit();
 #endif
 
-    while(returnError.GetValue())
+    while(!returnError)
     {
-        returnError = calculator.ManageUserInput(true);
+        returnError = calculator.ManageUserInput(&ButtonMapMaths::Default);
         // Manage returnErrors
     }
     ////////////////////////////

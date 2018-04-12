@@ -11,12 +11,12 @@ namespace ButtonMapMenu {
     static std::vector<std::map<unsigned char, unsigned short> >Hyperbolic {
             {
                 //  1: sinh         2: cosh         3: tanh
-                    {0, 0x220C},    {1, 0x220D},    {2, 0x220E},
+                {0, 0x220C},    {1, 0x220D},    {2, 0x220E},
                 //  4: sinh^-1      5: cos^-1       6: tanh^-1
-                    {10, 0x220F},   {11, 0x2210},   {12, 0x2211},
+                {10, 0x220F},   {11, 0x2210},   {12, 0x2211},
 
                 //  AC: Escape
-                    {24,0x5A00}
+                {24,0x5A00}
             }
     };
 
@@ -139,8 +139,8 @@ namespace ButtonMapMenu {
     static std::vector<std::map<unsigned char, unsigned short> > SetupCategory {
             // Page 1:
             {
-                //  1: Input/Output 2: Angle Unit   3: Number Format
-                    {0,0x3200},     {1,0x3201},     {2,0x3202},
+                //  1: Input/Output     2: Angle Unit   3: Number Format
+                    {0,0x3200},         {1,0x3201},     {2,0x3202},
                 //  4: Engineer Symbol
                     {10,0x3203},
 
@@ -230,9 +230,9 @@ namespace ButtonMapMenu {
     static std::vector<std::map<unsigned char, unsigned short> > SetupValue {
             // Input/Output:
             {
-                //  1: MathI/MathO  2: Angle Unit   3: Number Format
-                    {0,0x4000},     {1,0x4001},     {2,0x4002},
-                //  4: Engineer Symbol
+                //  1: MathI/MathO      2: MathI/decimalO   3: LineI/LinO
+                    {0,0x4000},         {1,0x4001},         {2,0x4002},
+                //  4: LineI/DecimalO
                     {10,0x4003},
 
                 //  Down: NextPage

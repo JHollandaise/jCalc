@@ -7,16 +7,10 @@
 #include "../input/buttonMaps/Menu.h"
 
 
-Error Calculator::ManageUserInput(bool getInput) {
+unsigned char Calculator::ManageUserInput() {
 
+    // user menu selection
     unsigned short menuSelection(0x0000);
-
-    // get new user input
-    if (getInput){
-        currentButtonToken = userInputController.GetUserInput();
-    }
-    // otherwise assume currentButtonToken is correct
-
 
     // NULL token
     if(currentButtonToken == 0x0000) return {};
@@ -35,26 +29,29 @@ Error Calculator::ManageUserInput(bool getInput) {
         return inputParser.AddToStream(currentButtonToken, &inputMethod);
 
     // open menu
-    // TODO: implement special menus
     if ( (currentButtonToken & 0xFF00U) == 0x5400 ) {
         while(!(menuSelection = GetMenuToken(0))){
             // TODO: implement incorrect option flash
         }
         currentButtonToken = menuSelection;
 
-        return ManageUserInput(false);
+        return ManageUserInput();
     }
 
     return {}; // TODO: create fallthrough error
 }
 
+unsigned char Calculator::ManageUserInput(std::map<unsigned char, unsigned short> *buttonMap) {
 
+    currentButtonToken = userInputController.GetUserInput(buttonMap);
 
+    return ManageUserInput();
+}
 
-Error Calculator::SetCalculatorBase() {
+unsigned char Calculator::SetCalculatorBase() {
 
     // TODO: implement SetCalculatorBase
-    return Error();
+    return {};
 }
 
 
@@ -185,5 +182,6 @@ unsigned short Calculator::GetMenuToken(unsigned char page, unsigned short selec
     else return newSelection;
 
 }
+
 
 

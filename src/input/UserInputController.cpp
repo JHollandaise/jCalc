@@ -20,10 +20,6 @@ unsigned short UserInputController::GetUserInput(std::map<unsigned char, unsigne
     return (*buttonMap)[buttonPress];
 }
 
-unsigned short UserInputController::GetUserInput() {
-    return GetUserInput(currentButtonMap);
-}
-
 #else
 
 // TODO: implement mbed

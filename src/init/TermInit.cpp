@@ -5,7 +5,7 @@
 #include "TermInit.h"
 #include <curses.h>
 
-Error TermInit::Initialise() {
+unsigned char TermInit::Initialise() {
 
     // required initialisation of curses window
     initscr();
@@ -16,7 +16,7 @@ Error TermInit::Initialise() {
     refresh();
 
     // TODO: set up error checking for curses window initialisation
-    return Error();
+    return {};
 }
 
 void TermInit::DeInitialise()

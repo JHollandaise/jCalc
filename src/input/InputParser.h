@@ -14,7 +14,7 @@ class InputParser {
 public:
     InputParser() : tokenStream(), graphicsStream() {cursorPos = tokenStream.end();};
 
-    Error AddToStream(unsigned short, bool*);
+    unsigned char AddToStream(unsigned short, bool *);
 
 private:
 

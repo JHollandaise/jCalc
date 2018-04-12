@@ -15,7 +15,7 @@ public:
     ~TermInit() {DeInitialise();};
 
 private:
-    Error Initialise();
+    unsigned char Initialise();
 
     void DeInitialise();
 

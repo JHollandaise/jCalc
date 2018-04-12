@@ -4,7 +4,7 @@
 
 #include "InputParser.h"
 
-Error InputParser::AddToStream(unsigned short token, bool* inputMethod)
+unsigned char InputParser::AddToStream(unsigned short token, bool *inputMethod)
 {
 
     // if insert mode
@@ -24,5 +24,5 @@ Error InputParser::AddToStream(unsigned short token, bool* inputMethod)
     }
 
     // TODO: error handling for AddToStream
-    return{};
+    return {};
 }

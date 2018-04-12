@@ -16,7 +16,7 @@ public:
 
 private:
     Calculator calculator;
-    Error returnError;
+    int returnError;
 
     TermInit termInit;
     MbedInit mbedInit;

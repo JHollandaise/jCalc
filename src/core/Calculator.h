@@ -11,6 +11,11 @@
 #include "../input/Button.h"
 #include "../InputDefs.h"
 
+/**
+ * Manages the control of action depending on user input and configuration options.
+ *
+ * @brief Main manager class
+ */
 class Calculator {
 
 public:
@@ -18,13 +23,21 @@ public:
                   calcMode(InputDefs::CalcMode::maths),
                   calculatorBase(InputDefs::CalculatorBase::decimal) {};
 
-    Error ManageUserInput(bool getInput);
+    /**
+     * Takes a given user input and determines the next operation the calculator will carry out.
+     *
+     * @param getInput if TRUE will get new user input else will assume currentButtonToken is valid
+     * @return
+     */
+    unsigned char ManageUserInput();
+    unsigned char ManageUserInput(std::map< unsigned char, unsigned short>* buttonMap);
+
 
 private:
 
     void SetCalcMode(InputDefs::CalcMode newCalcMode) {calcMode = newCalcMode;}
 
-    Error SetCalculatorBase();
+    unsigned char SetCalculatorBase();
 
     UserInputController userInputController;
 
