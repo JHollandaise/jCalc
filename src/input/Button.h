@@ -14,7 +14,7 @@ struct Button {
 
     Button(unsigned char _modifier, unsigned char _value):modifier(_modifier), value(_value) {}
 
-    Button():modifier((char)255),value((char)255) {}
+    Button():modifier((unsigned char)255),value((unsigned char)255) {}
 
     unsigned char modifier;
 

@@ -4,8 +4,25 @@
 
 #include "InputParser.h"
 
-Error InputParser::AddToStream(Button button)
+Error InputParser::AddToStream(unsigned short token, bool* inputMethod)
 {
-    //TODO: implement AddToStream
+
+    // if insert mode
+    if(*inputMethod)
+        cursorPos = tokenStream.insert(cursorPos,token) + 1;
+
+    // replace mode
+    else {
+        // at end, add element
+        if (cursorPos == tokenStream.end()){
+            tokenStream.push_back(token);
+            cursorPos = tokenStream.end();
+        }
+
+        // otherwise replace
+        *(cursorPos++) = token;
+    }
+
+    // TODO: error handling for AddToStream
     return{};
 }

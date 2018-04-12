@@ -17,7 +17,7 @@ void Initialiser::Initialise() {
 
     while(returnError.GetValue())
     {
-        returnError = calculator.ManageUserInput();
+        returnError = calculator.ManageUserInput(true);
         // Manage returnErrors
     }
     ////////////////////////////

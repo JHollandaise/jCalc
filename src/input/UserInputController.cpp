@@ -9,16 +9,23 @@
 
 #ifdef TERMINAL_EMULATE
 
-unsigned char UserInputController::GetUserInput() {
+unsigned short UserInputController::GetUserInput(std::map<unsigned char, unsigned short>* buttonMap) {
 
+    unsigned char buttonPress(0);
     int userKeypress(getch());
 
-    if(InputDefs::KeypressMap[userKeypress]) return lastButtonPress = InputDefs::KeypressMap[userKeypress];
-    else if (userKeypress=='1') return lastButtonPress = (unsigned char)0;
-    else return lastButtonPress = (unsigned char)255;
+    // check for invalid input -> return NULL input
+    if(!(buttonPress = InputDefs::KeypressMap[userKeypress]) && userKeypress != '1') return (unsigned short) 0x0000;
 
+    return (*buttonMap)[buttonPress];
 }
+
+unsigned short UserInputController::GetUserInput() {
+    return GetUserInput(currentButtonMap);
+}
+
 #else
 
 // TODO: implement mbed
 #endif
+

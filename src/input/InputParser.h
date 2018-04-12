@@ -12,19 +12,17 @@
 
 class InputParser {
 public:
-    InputParser() : cursorPos(0) {};
+    InputParser() : tokenStream(), graphicsStream() {cursorPos = tokenStream.end();};
 
-    Error AddToStream(Button);
-
-
+    Error AddToStream(unsigned short, bool*);
 
 private:
 
-    char cursorPos;
+    std::vector<unsigned short>::iterator cursorPos;
 
-    std::vector<Button> buttonStream{};
+    std::vector<unsigned short> tokenStream;
 
-    GraphicsStream graphicsStream{};
+    GraphicsStream graphicsStream;
 };
 
 

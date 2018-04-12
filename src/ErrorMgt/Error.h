@@ -10,12 +10,12 @@
 
 class Error {
 public:
-    Error(): value((char)255), message("no error"){};
+    Error(): value((unsigned char)255), message("no error"){};
 
-    char GetValue(){return value;}
+    unsigned char GetValue(){return value;}
 
 private:
-    char value;
+    unsigned char value;
     std::string message;
 };
 

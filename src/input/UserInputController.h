@@ -29,10 +29,13 @@ class UserInputController {
 public:
     UserInputController() : currentButtonMap(&ButtonMapMaths::Default),
                             shiftPressed(false), alphaPressed(false),
-                            recallPressed(false), lastButtonPress((char)255) {};
+                            recallPressed(false), lastButtonPress((unsigned char)255) {};
 
     // listens for a user button press then returns the value of the button pressed
-    unsigned char GetUserInput();
+    unsigned short GetUserInput(std::map<unsigned char, unsigned short>* buttonMap);
+    unsigned short GetUserInput();
+
+    unsigned short GetUser
 
     bool GetShiftPressed()  {return shiftPressed;}
     bool GetAlphaPressed()  {return alphaPressed;}
@@ -42,13 +45,14 @@ public:
 
     unsigned char GetLastButtonPress() {return lastButtonPress;}
 
-    std::map<char,short>* GetCurrentButtonMap() { return currentButtonMap;}
-    Error SetCurrentButtonMap();
+    std::map<unsigned char,unsigned short>* GetCurrentButtonMap() { return currentButtonMap;}
+    
+    Error SetCurrentButtonMap(std::map<unsigned char,unsigned short>*);
 
 
 private:
 
-    std::map<char,short>* currentButtonMap;
+    std::map<unsigned char,unsigned short>* currentButtonMap;
 
     bool shiftPressed;
     bool alphaPressed;

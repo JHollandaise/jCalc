@@ -15,10 +15,10 @@ class Calculator {
 
 public:
     Calculator(): userInputController(), inputParser(),
-                  calcMode(InputDefs::CalcMode::maths), calculatorBase(InputDefs::CalculatorBase::decimal),
-                  currentButton() {};
+                  calcMode(InputDefs::CalcMode::maths),
+                  calculatorBase(InputDefs::CalculatorBase::decimal) {};
 
-    Error ManageUserInput();
+    Error ManageUserInput(bool getInput);
 
 private:
 
@@ -34,10 +34,14 @@ private:
 
     InputDefs::CalculatorBase calculatorBase;
 
-    Button currentButton;
+    // insert(1)/replace(0)
+    bool inputMethod;
 
-    // TODO: implement OpenMenu
-    Error OpenMenu();
+    unsigned short currentButtonToken;
+
+    unsigned short GetMenuToken(unsigned char page, unsigned short selectedOption);
+    unsigned short GetMenuToken(unsigned char page);
+
 
 
 };
