@@ -17,19 +17,23 @@ namespace InputDefs {
 
 #ifdef TERMINAL_EMULATE
     static std::map<int,unsigned char> KeypressMap{
-            {'1',0}, {'2',1}, {'3',2}, {'+',3}, {'-',4}, {0527,6}/*evaluate*/,
-            {'4',10}, {'5',11}, {'6',12}, {'*',13}, {'/',14}, {'~',16},
-            {'7',20}, {'8',21}, {'9',22}, {0x08,23} /*DEL*/, {0177,24}/*AC*/,{'c',26}/*x10x*/,
-            {'z',30}/*RCL*/, {'x',31}/*eng*/, {'(',32}, {')',33},{'b',34}/*s->d*/, {'n',35}/*M+*/, {'.',36},
-            {'a',40}/*(-)*/, {'s',41}/*polar*/, {'d',42}/*hyp*/,
-                {'f',43}/*sin*/, {'g',44}/*cos*/, {'h',45}/*tan*/, {'0',46},
-            {'q',50}/*x/y*/, {'w',51}/*sqrt*/, {'e',52}/*x^2*/,
-                {'r',53}/*x^N*/, {'t',54}/*log*/, {'y',55}/*ln*/,
-            {'u',60}/*calc*/,{'i',61}/*integrate*/,{0404,62}/*left*/,
-                {0402,63}/*down*/,{'o',64}/*x^-1*/, {'p',65}/*logab*/,
-            {0x09,70}/*shift*/, {0541,71}/*alpha*/, {0403,72}/*up*/,
-                {0405,73}/*right*/, {'j',74}/*mode_Setup*/
-    };
+        //  1               2               3               +               -               =(EXE)
+            {'1',0},        {'2',1},        {'3',2},        {'+',3},        {'-',4},        {0527,6},
+        //  4               5               6               *               /               Ans
+            {'4',10},       {'5',11},       {'6',12},       {'*',13},       {'/',14},       {'~',16},
+        //  7               8               9               DEL             AC              *10^x
+            {'7',20},       {'8',21},       {'9',22},       {0x08,23},      {0177,24},      {'c',26},
+        //  RCL             ENG             (               )               S-D             M+              .
+            {'z',30},       {'x',31},       {'(',32},       {')',33},       {'b',34},       {'n',35},       {'.',36},
+        //  (-)             •'"             hyp             sin             cos             tan             0
+            {'a',40},       {'s',41},       {'d',42},       {'f',43},       {'g',44},       {'h',45},       {'0',46},
+        //  (a/b)           sqrt            square          PowerN          log             ln
+            {'q',50},       {'w',51},       {'e',52},       {'r',53},       {'t',54},       {'y',55},
+        //  calc            integrate       left            down            x^-1            logab
+            {'u',60},       {'i',61},       {0404,62},      {0402,63},      {'o',64},       {'p',65},
+        //  shift           alpha           up              right           mode
+            {0x09,70},      {0541,71},      {0403,72},      {0405,73},      {'j',74}
+        };
 #endif
     enum class CalcMode {
         maths, vector, matrix, stat, baseN, complex
@@ -97,7 +101,6 @@ namespace InputDefs {
         NULL70 = 70, NULL71, NULL72, NULL73, NULL74, NULL75, NULL76,
     };
 
-    // TODO: rename NULL cases
     enum class ButtonDefsComplex {
         NULL0, NULL1, NULL2, NULL3, NULL4, IGNORE5, NULL6,
         NULL10 = 10, NULL11, NULL12, NULL13, NULL14, IGNORE15, NULL16,
@@ -109,7 +112,6 @@ namespace InputDefs {
         NULL70 = 70, NULL71, NULL72, NULL73, NULL74, IGNORE75, IGNORE76,
     };
 
-    // TODO: rename NULL cases
     enum class ButtonDefsComplexShift {
         IGNORE0, complexMenu, IGNORE2, IGNORE3, IGNORE4, IGNORE5, NULL6,
         IGNORE10 = 10, IGNORE11, IGNORE12, NULL13, NULL14, IGNORE15, NULL16,
@@ -121,7 +123,6 @@ namespace InputDefs {
         IGNORE70 = 70, IGNORE71, IGNORE72, IGNORE73, IGNORE74, IGNORE75, IGNORE76,
     };
 
-    // TODO: rename NULL cases
     enum class ButtonDefsBaseN {
         NULL0, NULL1, NULL2, NULL3, NULL4, IGNORE5, NULL6,
         NULL10 = 10, NULL11, NULL12, NULL13, NULL14, IGNORE15, NULL16,
@@ -133,7 +134,6 @@ namespace InputDefs {
         NULL70 = 70, NULL71, NULL72, NULL73, NULL74, IGNORE75, IGNORE76,
     };
 
-    // TODO: rename NULL cases
     enum class ButtonDefsBaseNShift {
         IGNORE0, IGNORE1, baseNMenu, IGNORE3, IGNORE4, IGNORE5, IGNORE6,
         IGNORE10 = 10, IGNORE11, IGNORE12, IGNORE13, IGNORE14, IGNORE15, IGNORE16,
