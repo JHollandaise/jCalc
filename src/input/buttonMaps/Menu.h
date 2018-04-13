@@ -9,15 +9,15 @@
 
 namespace ButtonMapMenu {
     static std::vector<std::map<unsigned char, unsigned short> >Hyperbolic {
-            {
-                //  1: sinh         2: cosh         3: tanh
+        {
+            //  1: sinh         2: cosh         3: tanh
                 {0, 0x220C},    {1, 0x220D},    {2, 0x220E},
-                //  4: sinh^-1      5: cos^-1       6: tanh^-1
+            //  4: sinh^-1      5: cos^-1       6: tanh^-1
                 {10, 0x220F},   {11, 0x2210},   {12, 0x2211},
 
-                //  AC: Escape
+            //  AC: Escape
                 {24,0x5A00}
-            }
+        }
     };
 
     static std::vector<std::map<unsigned char, unsigned short> > Mode {
@@ -313,14 +313,145 @@ namespace ButtonMapMenu {
 
     // TODO: implement remaining converts
     static std::vector<std::map<unsigned char, unsigned short> > ConvertValue {
-            // length
+            // Length
             {
-                //  1: in->cm
-                    {0,0x2605},
+                //  1: Inches -> Centimemters   2: Centimemters -> Inches   3: Feet -> Meters
+                    {0,0x2605},                 {1,0x2606},                 {2,0x2607},
+                //  4: Meters -> Feet           5: Yards -> Meters          6: Meters -> Yards
+                    {10, 0x2608},               {11, 0x2609},               {12, 0x260A},
+                //  7: Miles -> Kilometers      8: Kilometers -> Miles      9: Nautical Miles -> Meters
+                    {20, 0x260B},               {21, 0x260C},               {22, 0x2610D},
+                //  A: Meters -> Nautical Miles B: Parsecs -> Kilometers    C: Kilometers -> Parsecs
+                    {40, 0x260E},               {41, 0x260F},               {42, 0x2610},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Area
+            {
+                //  1: Acres -> Meters^2    2: Meters^2 -> Acres
+                    {0,0x2611},             {1,0x2612},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Volume
+            {
+                //  1: Galons (US) -> Galons (UK)   2: Galons (US) -> Galons (UK)
+                    {0,0x2613},                     {1,0x2614},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Mass
+            {
+                //  1: Ounces -> Grams      2: Grams -> Ounces  3: Pounds -> Kilograms
+                    {0,0x2615},             {1,0x2616},         {2,0x2617},
+                //  4: Kilograms -> Pounds
+                    {10, 0x2618},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Velocity
+            {
+                //  1: Kilometers/Hour -> Meters/Second 2: Meters/Second -> Kilometers/Hour
+                    {0,0x2619},                         {1,0x261A},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Pressure
+            {
+                //  1: Atmospheres -> Pascals           2: Pascals -> Atmospheres           3: Milimeters Mercury -> Pascals
+                    {0,0x261B},                         {1,0x261C},                         {2,0x261D},
+                //  4: Pascals -> Milimeters Mercury    5: Kilogram Force/Cm^2 -> Pascals   6: Pascals -> Kilogram Force/Cm^2
+                    {10,0x261E},                        {11,0x261F},                        {12,0x2620},
+                //  7: Pound Force/Inch^2 -> kilopascal 8: kilopascal -> Pound Force/Inch^2
+                    {20, 0x2621},                       {21, 0x2622},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Energy
+            {
+                //  1: Kilogram Force Meters -> Joules  2: Joules -> Kilogram Force Meters  3: Joules -> Calories
+                    {0,0x2623},                         {1,0x2624},                         {2,0x2625},
+                //  4: Calories -> Joules
+                    {10,0x2626},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Power
+            {
+                //  1: HorsePower -> Kilowatts  2: Kilowatts -> HorsePower
+                    {0,0x2627},                 {1,0x2628},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Temperature
+            {
+                //  1: Fahrenheit -> Celsius    2: Celsius -> Fahrenheit
+                    {0,0x26A9},                 {1,0x262A},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
 
                 //  AC: Escape
                     {24,0x5A00}
             }
+
     };
 
     static std::vector<std::map<unsigned char, unsigned short> > SetupValue {
