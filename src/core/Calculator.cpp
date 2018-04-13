@@ -15,6 +15,8 @@ unsigned char Calculator::ManageUserInput() {
     // NULL token
     if(currentButtonToken == 0x0000) return {};
 
+    mvprintw(0,0,"input: 0x%x",currentButtonToken);
+
     // simple tokens and functions (add to stream)
     if (
         // simple single tokens
@@ -27,6 +29,21 @@ unsigned char Calculator::ManageUserInput() {
         ( ((currentButtonToken & 0xFF00U) >= 0x2500) && ((currentButtonToken & 0xFF00U) < 0x2800) )
     )
         return inputParser.AddToStream(currentButtonToken, &inputMethod);
+
+    // TODO : implement Type 3 and Type 4 functions
+
+    if((currentButtonToken & 0xFF00U) == 0x5200) {
+        switch (currentButtonToken) {
+            // TODO: Implement alternative modes for specific button maps
+            case 0x5201 :
+                return ManageUserInput(&ButtonMapMaths::Shift);
+            case 0x5202 :
+                return ManageUserInput(&ButtonMapMaths::Alpha);
+            default:
+                // TODO: RCL is stupid
+                break;
+        }
+    }
 
     // open menu
     if ( (currentButtonToken & 0xFF00U) == 0x5400 ) {

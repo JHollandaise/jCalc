@@ -202,12 +202,109 @@ namespace ButtonMapMenu {
             }
     };
 
-    // TODO: implement remaining constants
     static std::vector<std::map<unsigned char, unsigned short> > ConstantValue {
-            // universal
+            // Universal
             {
-                //  1: h
-                    {0,0x1A02},
+                //  1:Plank Constant            2: Reduced Plank Constant   3: Vaccuum Speed of Light
+                    {0,0x1A02},                 {1,0x1A03},                 {2,0x1A04},
+                //  4: Vacuum Permittivity      5: Vacuum Permeability      6: Vacuum Characteristic Impedance
+                    {10, 0x1A05},               {11, 0x1A06},               {12, 0x1A07},
+                //  7: Constant of Gravitation  8: Plank Length             9: Plank time
+                    {20, 0x1A08},               {21, 0x1A09},               {22, 0x1A0A},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Electromagnetic
+            {
+                //  1: Nuclear Magneton         2: Bohr Magneton            3: Elementary Charge
+                    {0,0x1A0B},                 {1,0x1A0C},                 {2,0x1A0D},
+                //  4: Magnetic Flux Quantum     5: Conductance Quantum  6: Josephson Constant
+                    {10, 0x1A0E},               {11, 0x1A0F},               {12, 0x1A10},
+                //  7: Von Klitzing Constant
+                    {20, 0x1A11},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Atomic & Nuclear
+            {
+                //  1: Proton Mass                  2: Neutron Mass                 3: Electron Mass
+                    {0,0x1A12},                     {1,0x1A13},                     {2,0x1A14},
+                //  4: Muon Mass                    5: Bohr Radius                  6: Fine Structure Constant
+                    {10, 0x1A15},                   {11, 0x1A16},                   {12, 0x1A17},
+                //  7: Classical Electron Radius    8: Electron Compton Wavelength  9: Proton Gyromagnetic Ratio
+                    {20, 0x1A18},                   {21, 0x1A19},                   {22, 0x1A1A},
+                //  A: Proton Compton Wavelength    B: Neutron Compton Wavelength   C: Rydberg Constant
+                    {40, 0x1A1B},                   {41, 0x1A1C},                   {42, 0x1A1D},
+                //  D: Proton Magnetic Moment       E: Electron Magnetic Moment     F: Neutron Magnetic Moment
+                    {43, 0x1A1E},                   {44, 0x1A1F},                   {45, 0x1A20},
+                //  M: Muon Magnetic Moment         x: Tau Lepton Mass
+                    {35, 0x1A21},                   {33, 0x1A22},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Physico-Chemical
+            {
+                //  1: Atomic Mass Constant     2: Faraday Constant             3: Avagadro Constant
+                    {0,0x1A23},                 {1,0x1A24},                     {2,0x1A25},
+                //  4: Boltzmann Constant       5: Molar Volume of an Ideal Gas 6: Gas Constant
+                    {10, 0x1A26},               {11, 0x1A27},                   {12, 0x1A28},
+                //  7: First Radiation Constant 8: Second Radiation Constant    9: Stefan-Boltzmann Constant
+                    {20, 0x1A29},               {21, 0x1A2A},                   {22, 0x1A2B},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+            // Adopted Values
+            {
+                //  1: Accn of Gravity      2: Standard Atmosphere  3: Von Klitzing Constant
+                    {0,0x1A2C},             {1,0x1A2D},             {2,0x1A2E},
+                //  4: Josephson Constant
+                    {10, 0x1A2F},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Other
+            {
+                //  1: Freezing point of water
+                    {0,0x1A30},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
 
                 //  AC: Escape
                     {24,0x5A00}
@@ -226,7 +323,6 @@ namespace ButtonMapMenu {
             }
     };
 
-    // TODO: impement remaining setups
     static std::vector<std::map<unsigned char, unsigned short> > SetupValue {
             // Input/Output:
             {
@@ -256,7 +352,193 @@ namespace ButtonMapMenu {
 
                 //  AC: Escape
                     {24,0x5A00}
-            }
+            },
+
+            // Number Format:
+            {
+                //  1: Fix      2: Sci      3: Norm
+                    {0,0x4200}, {1,0x4201}, {2,0x4202},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Engineering Symbol:
+            {
+                //  1: On       2: Off
+                    {0,0x4300}, {1,0x4301},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Fraction Result:
+            {
+                //  1: ab/b     2: d/c
+                    {0,0x4400}, {1,0x4401},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Complex:
+            {
+                //  1: a+bi     2: r<theta
+                    {0,0x4500}, {1,0x4501},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Statistics - Frequency:
+            {
+                //  1: On       2: Off
+                    {0,0x4600}, {1,0x4601},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Spreadsheet:
+            {
+                //  1: Auto Calculate   2: Show Cell
+                    {0,0x4700},         {1,0x4701},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Equation/Func - Complex Result:
+            {
+                //  1: On       2: Off
+                    {0,0x4800}, {1,0x4801},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Table:
+            {
+                //  1: f(x)     2: f(x), g(x)
+                    {0,0x4900}, {1,0x4901},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Decimal Mark:
+            {
+                //  1: Dot      2: Comma
+                    {0,0x4A00}, {1,0x4A01},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Digit Separator:
+            {
+                //  1: On       2: Off
+                    {0,0x4B00}, {1,0x4B01},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Multiline Font:
+            {
+                //  1: Normal Font  2: Small Font
+                    {0,0x4C00},     {1,0x4C01},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // QR Code:
+            {
+                //  1: Version 3    2: Version 11
+                    {0,0x4D00},     {1,0x4D01},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Input Method:
+            {
+                //  1: Insert   2: Replace
+                    {0,0x4E00}, {1,0x4E01},
+
+                //  Down: NextPage
+                    {63,0x5501},
+                //  Up: PrevPage
+                    {72,0x5502},
+
+                //  AC: Escape
+                    {24,0x5A00}
+            },
+
+            // Change Contrast
+            {{0,0x4F00}}
+
     };
 }
 

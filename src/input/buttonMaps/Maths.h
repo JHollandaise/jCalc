@@ -45,6 +45,7 @@ namespace ButtonMapMaths{
         //  setup
             {74,0x5406}
     };
+
     static std::map<unsigned char,unsigned short> Alpha {
 
         //  e

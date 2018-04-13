@@ -28,7 +28,7 @@ class UserInputController {
 
 public:
     UserInputController() : shiftPressed(false), alphaPressed(false),
-                            recallPressed(false), lastButtonPress((unsigned char)255) {};
+                            recallPressed(false){};
 
     // listens for a user button press then returns the value of the button pressed
     unsigned short GetUserInput(std::map<unsigned char, unsigned short>* buttonMap);
@@ -39,9 +39,9 @@ public:
     bool GetAlphaPressed()  {return alphaPressed;}
     bool GetRecallPressed() {return recallPressed;}
 
-    unsigned char GetModifier() {return shiftPressed + (alphaPressed << 1) + (recallPressed<<2);}
-
-    unsigned char GetLastButtonPress() {return lastButtonPress;}
+    void SetShiftPressed(bool value)  {shiftPressed = value;}
+    void SetAlphaPressed(bool value)  {alphaPressed = value;}
+    void SetRecallPressed(bool value) {recallPressed = value;}
 
 
 
@@ -52,8 +52,6 @@ private:
     bool alphaPressed;
 
     bool recallPressed;
-
-    unsigned char lastButtonPress;
 
 };
 
