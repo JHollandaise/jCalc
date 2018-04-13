@@ -20,7 +20,6 @@ void Initialiser::Initialise() {
         returnError = calculator.ManageUserInput(&ButtonMapMaths::Default);
         // Manage returnErrors
     }
-    ////////////////////////////
     // deconstruct init (de-init)
 
 }
