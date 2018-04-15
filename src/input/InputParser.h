@@ -20,6 +20,9 @@ public:
 
     unsigned char ClearStream();
 
+    unsigned char MoveCursorRight();
+    unsigned char MoveCursorLeft();
+
     std::vector<unsigned short>* GetTokenStream(){ return &tokenStream; }
 
 private:

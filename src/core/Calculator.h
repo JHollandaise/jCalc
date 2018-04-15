@@ -22,7 +22,7 @@ class Calculator {
 public:
     Calculator(): userInputController(), inputParser(),
                   calcMode(InputDefs::CalcMode::maths),
-                  inputMethod(false),
+                  inputMethod(true),
                   calculatorBase(InputDefs::CalculatorBase::decimal),
                   currentButtonToken(0x0000U) {};
 

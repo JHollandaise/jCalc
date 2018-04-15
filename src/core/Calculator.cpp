@@ -83,6 +83,17 @@ unsigned char Calculator::ManageUserInput() {
         return ManageUserInput();
     }
 
+    if(currentButtonToken == 0x5500) {
+        inputParser.MoveCursorLeft();
+        graphicsController.PrintTokenStream(inputParser.GetTokenStream());
+        return 0;
+    }
+
+    if(currentButtonToken == 0x5503) {
+        inputParser.MoveCursorRight();
+        graphicsController.PrintTokenStream(inputParser.GetTokenStream());
+        return 0;
+    }
 
 
     return {}; // TODO: create fallthrough error

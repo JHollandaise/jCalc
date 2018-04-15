@@ -29,7 +29,7 @@ unsigned char InputParser::AddToStream(unsigned short token, bool *inputMethod)
 
 unsigned char InputParser::DelFromStream() {
 
-    if (tokenStream.size()) cursorPos = tokenStream.erase(cursorPos-1);
+    if (!tokenStream.empty()) cursorPos = tokenStream.erase(cursorPos-1);
 
     return 0;
 }
@@ -39,5 +39,18 @@ unsigned char InputParser::ClearStream() {
     tokenStream.clear();
 
     cursorPos = tokenStream.end();
+    return 0;
+}
+
+unsigned char InputParser::MoveCursorRight() {
+
+    if(cursorPos != tokenStream.end()) cursorPos++;
+
+    return 0;
+}
+
+unsigned char InputParser::MoveCursorLeft() {
+
+    if(cursorPos != tokenStream.begin()) cursorPos--;
     return 0;
 }
