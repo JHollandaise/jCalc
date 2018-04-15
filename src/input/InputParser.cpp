@@ -20,7 +20,7 @@ unsigned char InputParser::AddToStream(unsigned short token, bool *inputMethod)
         }
 
         // otherwise replace
-        *(cursorPos++) = token;
+        else *(cursorPos++) = token;
     }
 
     // TODO: error handling for AddToStream

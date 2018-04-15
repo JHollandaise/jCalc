@@ -16,6 +16,8 @@ public:
 
     unsigned char AddToStream(unsigned short, bool *);
 
+    std::vector<unsigned short>* GetTokenStream(){ return &tokenStream; }
+
 private:
 
     std::vector<unsigned short>::iterator cursorPos;

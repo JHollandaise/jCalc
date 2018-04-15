@@ -2,12 +2,12 @@
 // Created by Joseph Holland  on 05/04/2018.
 //
 
-// DEBUG: remove before compile
-#define TERMINAL_EMULATE
 
 
 #ifndef JCALC_USERINPUTCONTROLLER_H
 #define JCALC_USERINPUTCONTROLLER_H
+
+#include "../OperationMode.h"
 
 #include "Button.h"
 #include "../InputDefs.h"

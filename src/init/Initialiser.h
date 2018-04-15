@@ -5,10 +5,19 @@
 #ifndef JCALC_INITIALISER_H
 #define JCALC_INITIALISER_H
 
+#include "../OperationMode.h"
+
 
 #include "../core/Calculator.h"
-#include "TermInit.h"
 #include "MbedInit.h"
+
+
+#ifdef TERMINAL_EMULATE
+
+#include "TermInit.h"
+
+#endif
+
 
 class Initialiser {
 public:

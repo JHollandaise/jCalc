@@ -10,6 +10,7 @@
 #include "../input/UserInputController.h"
 #include "../input/Button.h"
 #include "../InputDefs.h"
+#include "../GUI/GraphicsController.h"
 
 /**
  * Manages the control of action depending on user input and configuration options.
@@ -21,7 +22,9 @@ class Calculator {
 public:
     Calculator(): userInputController(), inputParser(),
                   calcMode(InputDefs::CalcMode::maths),
-                  calculatorBase(InputDefs::CalculatorBase::decimal) {};
+                  inputMethod(false),
+                  calculatorBase(InputDefs::CalculatorBase::decimal),
+                  currentButtonToken(0x0000U) {};
 
     /**
      * Takes a given user input and determines the next operation the calculator will carry out.
@@ -41,6 +44,8 @@ private:
 
     UserInputController userInputController;
 
+    GraphicsController graphicsController;
+
     InputParser inputParser;
 
     InputDefs::CalcMode calcMode;
@@ -54,6 +59,8 @@ private:
 
     unsigned short GetMenuToken(unsigned char page, unsigned short selectedOption);
     unsigned short GetMenuToken(unsigned char page);
+
+    unsigned  char CalculateResult();
 
 
 

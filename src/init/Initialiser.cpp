@@ -2,14 +2,13 @@
 // Created by Joseph Holland  on 10/04/2018.
 //
 
-//DEBUG: remove before compile
-#define TERMINAL_EMULATOR
 
 #include "Initialiser.h"
 
+
 void Initialiser::Initialise() {
 
-#ifdef TERMINAL_EMULATOR
+#ifdef TERMINAL_EMULATE
     termInit = TermInit();
 #else
     mbedInit = MbedInit();

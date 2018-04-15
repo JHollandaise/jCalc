@@ -15,12 +15,10 @@ unsigned char Calculator::ManageUserInput() {
     // NULL token
     if(currentButtonToken == 0x0000) return {};
 
-    mvprintw(0,0,"input: 0x%x",currentButtonToken);
-
     // simple tokens and functions (add to stream)
     if (
         // simple single tokens
-        ((currentButtonToken & 0xFF00U) == 0x1000) ||
+        ((currentButtonToken & 0xF000U) == 0x1000) ||
 
         // simple functions
         // Type 0 - Type 2
@@ -28,9 +26,26 @@ unsigned char Calculator::ManageUserInput() {
         // Type 5 - Type 7
         ( ((currentButtonToken & 0xFF00U) >= 0x2500) && ((currentButtonToken & 0xFF00U) < 0x2800) )
     )
-        return inputParser.AddToStream(currentButtonToken, &inputMethod);
+    {
+        inputParser.AddToStream(currentButtonToken, &inputMethod);
+        graphicsController.PrintTokenStream(inputParser.GetTokenStream());
+        return 0;
+
+    }
+
+
 
     // TODO : implement Type 3 and Type 4 functions
+
+
+    // execution command
+    if((currentButtonToken & 0xFF00U) == 0x5000) {
+        // TODO: implement special executions
+
+        CalculateResult();
+
+
+    }
 
     if((currentButtonToken & 0xFF00U) == 0x5200) {
         switch (currentButtonToken) {
@@ -54,6 +69,8 @@ unsigned char Calculator::ManageUserInput() {
 
         return ManageUserInput();
     }
+
+
 
     return {}; // TODO: create fallthrough error
 }
@@ -198,6 +215,11 @@ unsigned short Calculator::GetMenuToken(unsigned char page, unsigned short selec
     // newSelection is a selectable option
     else return newSelection;
 
+}
+
+unsigned char Calculator::CalculateResult() {
+    // TODO: implement CalculateResult
+    return 0;
 }
 
 

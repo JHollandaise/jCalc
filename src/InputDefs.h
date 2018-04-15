@@ -2,11 +2,12 @@
 // Created by Joseph Holland  on 08/04/2018.
 //
 
-// DEBUG: remove before compile
-#define TERMINAL_EMULATE
 
 #ifndef JCALC_INPUT_DEFS_H
 #define JCALC_INPUT_DEFS_H
+
+#include "OperationMode.h"
+
 
 #ifdef TERMINAL_EMULATE
 #include <map>
@@ -35,6 +36,7 @@ namespace InputDefs {
             {0x09,70},      {0541,71},      {0403,72},      {0405,73},      {'j',74}
         };
 #endif
+
     enum class CalcMode {
         maths, vector, matrix, stat, baseN, complex
     };

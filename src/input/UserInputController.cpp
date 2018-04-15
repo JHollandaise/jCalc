@@ -3,9 +3,7 @@
 //
 
 #include "UserInputController.h"
-
-// DEBUG: remove before compile
-#define TERMINAL_EMULATE
+#include "../OperationMode.h"
 
 #ifdef TERMINAL_EMULATE
 
