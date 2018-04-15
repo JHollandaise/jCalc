@@ -16,6 +16,10 @@ public:
 
     unsigned char AddToStream(unsigned short, bool *);
 
+    unsigned char DelFromStream();
+
+    unsigned char ClearStream();
+
     std::vector<unsigned short>* GetTokenStream(){ return &tokenStream; }
 
 private:

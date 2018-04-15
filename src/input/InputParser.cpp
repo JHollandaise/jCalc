@@ -26,3 +26,18 @@ unsigned char InputParser::AddToStream(unsigned short token, bool *inputMethod)
     // TODO: error handling for AddToStream
     return {};
 }
+
+unsigned char InputParser::DelFromStream() {
+
+    if (tokenStream.size()) cursorPos = tokenStream.erase(cursorPos-1);
+
+    return 0;
+}
+
+unsigned char InputParser::ClearStream() {
+
+    tokenStream.clear();
+
+    cursorPos = tokenStream.end();
+    return 0;
+}

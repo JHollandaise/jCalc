@@ -25,12 +25,10 @@ unsigned char Calculator::ManageUserInput() {
         ( ((currentButtonToken & 0xFF00U) >= 0x2000) && ((currentButtonToken & 0xFF00U) < 0x2300) ) ||
         // Type 5 - Type 7
         ( ((currentButtonToken & 0xFF00U) >= 0x2500) && ((currentButtonToken & 0xFF00U) < 0x2800) )
-    )
-    {
+    ) {
         inputParser.AddToStream(currentButtonToken, &inputMethod);
         graphicsController.PrintTokenStream(inputParser.GetTokenStream());
         return 0;
-
     }
 
 
@@ -43,8 +41,23 @@ unsigned char Calculator::ManageUserInput() {
         // TODO: implement special executions
 
         CalculateResult();
+        return 0;
 
 
+    }
+
+    // DEL key
+    if(currentButtonToken == 0x5100) {
+        inputParser.DelFromStream();
+        graphicsController.PrintTokenStream(inputParser.GetTokenStream());
+        return 0;
+    }
+
+    // AC
+    if(currentButtonToken == 0x5101) {
+        inputParser.ClearStream();
+        graphicsController.PrintTokenStream(inputParser.GetTokenStream());
+        return 0;
     }
 
     if((currentButtonToken & 0xFF00U) == 0x5200) {
