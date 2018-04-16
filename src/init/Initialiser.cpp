@@ -14,11 +14,8 @@ void Initialiser::Initialise() {
     mbedInit = MbedInit();
 #endif
 
-    while(!returnError)
-    {
-        returnError = calculator.ManageUserInput(&ButtonMapMaths::Default);
-        // Manage returnErrors
-    }
+    calculator.Mainloop();
+
     // deconstruct init (de-init)
 
 }

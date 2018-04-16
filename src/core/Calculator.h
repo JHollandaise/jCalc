@@ -21,9 +21,9 @@ class Calculator {
 
 public:
     Calculator(): userInputController(), inputParser(),
-                  calcMode(InputDefs::CalcMode::maths),
+                  calcMode(0x5800),
                   inputMethod(true),
-                  calculatorBase(InputDefs::CalculatorBase::decimal),
+                  calculatorBase(0x5C00),
                   currentButtonToken(0x0000U) {};
 
     /**
@@ -35,20 +35,14 @@ public:
     unsigned char ManageUserInput();
     unsigned char ManageUserInput(std::map< unsigned char, unsigned short>* buttonMap);
 
+    unsigned char Mainloop();
+
 
 private:
 
-    /**
-     * Sets calculation mode (COMP, STAT, etc)
-     */
-    void SetCalcMode(InputDefs::CalcMode newCalcMode) {calcMode = newCalcMode;}
+    std::map< unsigned char, unsigned short>* GetDefaultButtonMap();
 
-    /**
-     * sets numerical base (HEX, BIN, DEC, OCT)
-     * default decimal
-     * @return
-     */
-    void SetCalculatorBase(unsigned short baseToken);
+    unsigned char returnError;
 
     UserInputController userInputController;
 
@@ -56,9 +50,9 @@ private:
 
     InputParser inputParser;
 
-    InputDefs::CalcMode calcMode;
+    unsigned short calcMode;
 
-    InputDefs::CalculatorBase calculatorBase;
+    unsigned short calculatorBase;
 
     // insert(1)/replace(0)
     bool inputMethod;

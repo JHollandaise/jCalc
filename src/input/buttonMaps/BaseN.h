@@ -25,7 +25,7 @@ namespace ButtonMapsBaseN {
         //  left
             {62,0x5500},
         //  shift           alpha           up              right           mode
-            {70,0x5201},    {71,0x5202},    {72,0x5502},    {73,0x5503},    {74,0x5401}
+            {70,0x5203},    {71,0x5204},    {72,0x5502},    {73,0x5503},    {74,0x5401}
     };
 
     static std::map<unsigned char,unsigned short> Shift {
@@ -39,8 +39,6 @@ namespace ButtonMapsBaseN {
             {40,0x1B00},    {41,0x1B01},    {42,0x1B02},    {43,0x1B03},    {44,0x1B04},    {45,0x1B05},
         //  DEC             HEX             BIN             OCT
             {52,0x5C00},    {53,0x5C01},    {54,0x5C02},    {55,0x5C03},
-        //  solve           differentiate   factorial       summation
-            {60,0x5005},    {61,0x230A},    {64,0x2604},    {65,0x230B},
         //  setup
             {74,0x5406}
     };

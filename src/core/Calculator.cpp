@@ -5,14 +5,13 @@
 #include "Calculator.h"
 #include "../input/buttonMaps/Maths.h"
 #include "../input/buttonMaps/Menu.h"
+#include "../input/buttonMaps/BaseN.h"
 
 
 unsigned char Calculator::ManageUserInput() {
 
     // user menu selection
     unsigned short menuSelection(0x0000);
-
-    unsigned char returnError;
 
     // NULL token
     if(currentButtonToken == 0x0000) return {};
@@ -64,11 +63,18 @@ unsigned char Calculator::ManageUserInput() {
 
     if((currentButtonToken & 0xFF00U) == 0x5200) {
         switch (currentButtonToken) {
-            // TODO: Implement alternative modes for specific button maps
             case 0x5201 :
-                return ManageUserInput(&ButtonMapMaths::Shift);
+                returnError = ManageUserInput(&ButtonMapMaths::Shift);
+                break;
             case 0x5202 :
-                return ManageUserInput(&ButtonMapMaths::Alpha);
+                returnError = ManageUserInput(&ButtonMapMaths::Alpha);
+                break;
+            case 0x5203 :
+                returnError = ManageUserInput(&ButtonMapsBaseN::Shift);
+                break;
+            case 0x5204 :
+                returnError = ManageUserInput(&ButtonMapsBaseN::Alpha);
+                break;
             default:
                 // TODO: RCL is stupid
                 break;
@@ -88,14 +94,16 @@ unsigned char Calculator::ManageUserInput() {
     if(currentButtonToken == 0x5500) {
         inputParser.MoveCursorLeft();
         graphicsController.PrintTokenStream(inputParser.GetTokenStream());
-        return 0;
     }
 
     if(currentButtonToken == 0x5503) {
         inputParser.MoveCursorRight();
         graphicsController.PrintTokenStream(inputParser.GetTokenStream());
-        return 0;
     }
+
+    // change calculator mode
+    if( (currentButtonToken & 0xFF00U) == 0x5800 )
+        calcMode = currentButtonToken;
 
 
     return returnError; // TODO: create fallthrough error
@@ -106,11 +114,6 @@ unsigned char Calculator::ManageUserInput(std::map<unsigned char, unsigned short
     currentButtonToken = userInputController.GetUserInput(buttonMap);
 
     return ManageUserInput();
-}
-
-void Calculator::SetCalculatorBase(unsigned short baseToken) {
-
-
 }
 
 
@@ -249,6 +252,30 @@ unsigned short Calculator::GetMenuToken(unsigned char page, unsigned short selec
 unsigned char Calculator::CalculateResult() {
     // TODO: implement CalculateResult
     return 0;
+}
+
+unsigned char Calculator::Mainloop() {
+
+    while(!returnError)
+    {
+        returnError = ManageUserInput(GetDefaultButtonMap());
+        // TODO: Manage returnErrors
+    }
+    return 0;
+}
+
+std::map<unsigned char, unsigned short> * Calculator::GetDefaultButtonMap(){
+    switch (calcMode) {
+        case 0x5800 :
+            return &ButtonMapMaths::Default;
+
+        //TODO: implement remaining button maps x (CMPLX etc.)
+        case 0x5803 :
+            return &ButtonMapsBaseN::Default;
+        default:
+            // Flora is (not) Gay?
+            return nullptr;
+    }
 }
 
 
