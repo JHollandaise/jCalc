@@ -29,8 +29,8 @@ public:
     /**
      * Takes a given user input and determines the next operation the calculator will carry out.
      *
-     * @param getInput if TRUE will get new user input else will assume currentButtonToken is valid
-     * @return
+     * @param buttonMap button press -> token
+     * @return error code (0 for successful)
      */
     unsigned char ManageUserInput();
     unsigned char ManageUserInput(std::map< unsigned char, unsigned short>* buttonMap);
@@ -38,9 +38,17 @@ public:
 
 private:
 
+    /**
+     * Sets calculation mode (COMP, STAT, etc)
+     */
     void SetCalcMode(InputDefs::CalcMode newCalcMode) {calcMode = newCalcMode;}
 
-    unsigned char SetCalculatorBase();
+    /**
+     * sets numerical base (HEX, BIN, DEC, OCT)
+     * default decimal
+     * @return
+     */
+    void SetCalculatorBase(unsigned short baseToken);
 
     UserInputController userInputController;
 

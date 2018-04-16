@@ -55,6 +55,18 @@ namespace ButtonMapMenu {
             }
     };
 
+    static std::vector<std::map<unsigned char, unsigned short> > BaseN {
+            {
+                //  1: and          2: or           3: xor
+                    {0, 0x1B00},    {1, 0x1B01},    {2, 0x1B02},
+                //  4: xnor         5: not          6: neg
+                    {10, 0x1B03},   {11, 0x1B04},   {12, 0x1B05},
+
+                    //  AC: Escape
+                    {24,0x5A00}
+            }
+    };
+
     static std::vector<std::map<unsigned char, unsigned short> > ConstantCategory {
             // Page 1:
             {

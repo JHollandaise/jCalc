@@ -12,6 +12,8 @@ unsigned char Calculator::ManageUserInput() {
     // user menu selection
     unsigned short menuSelection(0x0000);
 
+    unsigned char returnError;
+
     // NULL token
     if(currentButtonToken == 0x0000) return {};
 
@@ -96,7 +98,7 @@ unsigned char Calculator::ManageUserInput() {
     }
 
 
-    return {}; // TODO: create fallthrough error
+    return returnError; // TODO: create fallthrough error
 }
 
 unsigned char Calculator::ManageUserInput(std::map<unsigned char, unsigned short> *buttonMap) {
@@ -106,10 +108,9 @@ unsigned char Calculator::ManageUserInput(std::map<unsigned char, unsigned short
     return ManageUserInput();
 }
 
-unsigned char Calculator::SetCalculatorBase() {
+void Calculator::SetCalculatorBase(unsigned short baseToken) {
 
-    // TODO: implement SetCalculatorBase
-    return {};
+
 }
 
 
@@ -159,6 +160,10 @@ unsigned short Calculator::GetMenuToken(unsigned char page, unsigned short selec
             menuMap = &ButtonMapMenu::SetupCategory;
             break;
 
+        // baseN menu
+        case 0x5407:
+            menuMap = &ButtonMapMenu::BaseN;
+            break;
 
         // const menu -> category
         case 0x3000:
