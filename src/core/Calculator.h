@@ -23,7 +23,7 @@ public:
     Calculator(): userInputController(), inputParser(),
                   calcMode(0x5800),
                   inputMethod(true),
-                  calculatorBase(0x5C00),
+                  calculatorBase(0x5B00),
                   currentButtonToken(0x0000U) {};
 
     /**

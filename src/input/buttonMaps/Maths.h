@@ -58,5 +58,12 @@ namespace ButtonMapMaths{
             {60,0x1901},    {61,0x1900}
     };
 
+    static std::map<unsigned char, unsigned short> RCL {
+            //  VarX            VarY            VarM
+            {33,0x1600},    {34,0x1601},    {35,0x1602},
+            //  VarA            VarB            VarC            VarD            VarE            VarF
+            {40,0x1603},    {41,0x1604},    {42,0x1605},    {43,0x1606},    {44,0x1607},    {45,0x1608},
+    };
+
 }
 #endif //JCALC_BUTTONDEFS_H

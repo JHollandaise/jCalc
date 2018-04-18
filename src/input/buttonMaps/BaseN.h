@@ -21,7 +21,7 @@ namespace ButtonMapsBaseN {
         //  HexA            HexB            HexC            HexD            HexE            HexF            0
             {40,0x100A},    {41,0x100B},    {42,0x100C},    {43,0x100D},    {44,0x100E},    {45,0x100F},    {46,0x1000},
         //  DEC             HEX             BIN             OCT
-            {52,0x5C00},    {53,0x5C01},    {54,0x5C02},    {55,0x5C03},
+            {52,0x5B00},    {53,0x5B01},    {54,0x5B02},    {55,0x5B03},
         //  left
             {62,0x5500},
         //  shift           alpha           up              right           mode
@@ -38,7 +38,7 @@ namespace ButtonMapsBaseN {
         //  HexA            HexB            HexC            HexD            HexE            HexF
             {40,0x1B00},    {41,0x1B01},    {42,0x1B02},    {43,0x1B03},    {44,0x1B04},    {45,0x1B05},
         //  DEC             HEX             BIN             OCT
-            {52,0x5C00},    {53,0x5C01},    {54,0x5C02},    {55,0x5C03},
+            {52,0x5B00},    {53,0x5B01},    {54,0x5B02},    {55,0x5B03},
         //  setup
             {74,0x5406}
     };
