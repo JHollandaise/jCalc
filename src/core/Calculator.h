@@ -11,6 +11,8 @@
 #include "../input/Button.h"
 #include "../InputDefs.h"
 #include "../GUI/GraphicsController.h"
+#include "CalculationResult.h"
+#include "Evaluator.h"
 
 /**
  * Manages the control of action depending on user input and configuration options.
@@ -24,7 +26,8 @@ public:
                   calcMode(0x5800),
                   inputMethod(true),
                   calculatorBase(0x5B00),
-                  currentButtonToken(0x0000U) {};
+                  currentButtonToken(0x0000U),
+                  evaluator(){};
 
     /**
      * Takes a given user input and determines the next operation the calculator will carry out.
@@ -42,17 +45,21 @@ private:
 
     std::map< unsigned char, unsigned short>* GetDefaultButtonMap();
 
-    unsigned char returnError;
-
     UserInputController userInputController;
 
     GraphicsController graphicsController;
 
     InputParser inputParser;
 
+    Evaluator evaluator;
+
     unsigned short calcMode;
 
     unsigned short calculatorBase;
+
+    std::vector<CalculationResult> resultHistory;
+
+    std::vector<unsigned short>::iterator evalCursor;
 
     // insert(1)/replace(0)
     bool inputMethod;

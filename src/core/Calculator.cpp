@@ -10,6 +10,9 @@
 
 unsigned char Calculator::ManageUserInput() {
 
+
+    unsigned char returnError;
+
     // user menu selection
     unsigned short menuSelection(0x0000);
 
@@ -27,23 +30,20 @@ unsigned char Calculator::ManageUserInput() {
         // Type 5 - Type 7
         ( ((currentButtonToken & 0xFF00U) >= 0x2500) && ((currentButtonToken & 0xFF00U) < 0x2800) )
     ) {
-        inputParser.AddToStream(currentButtonToken, &inputMethod);
+        returnError = inputParser.AddToStream(currentButtonToken, &inputMethod);
         graphicsController.PrintTokenStream(inputParser.GetTokenStream());
-        return 0;
     }
 
 
-
     // TODO : implement Type 3 and Type 4 functions
+
 
 
     // execution command
     if((currentButtonToken & 0xFF00U) == 0x5000) {
         // TODO: implement special executions
 
-        CalculateResult();
-        return 0;
-
+        returnError = CalculateResult();
 
     }
 
@@ -63,6 +63,8 @@ unsigned char Calculator::ManageUserInput() {
 
     if((currentButtonToken & 0xFF00U) == 0x5200) {
         switch (currentButtonToken) {
+            case 0x5200 :
+                returnError = ManageUserInput(&ButtonMapMaths::RCL);
             case 0x5201 :
                 returnError = ManageUserInput(&ButtonMapMaths::Shift);
                 break;
@@ -76,7 +78,6 @@ unsigned char Calculator::ManageUserInput() {
                 returnError = ManageUserInput(&ButtonMapsBaseN::Alpha);
                 break;
             default:
-                // TODO: RCL is stupid
                 break;
         }
     }
@@ -250,17 +251,33 @@ unsigned short Calculator::GetMenuToken(unsigned char page, unsigned short selec
 }
 
 unsigned char Calculator::CalculateResult() {
-    // TODO: implement CalculateResult
-    return 0;
+
+    evalCursor = inputParser.GetTokenStream()->begin();
+
+    unsigned char returnError;
+
+
+    for (;;) {
+        // TODO: add assignment to CalculationResult
+        CalculationResult currentResult(evaluator.Expr(false));
+
+        if(!(returnError = evaluator.returnError)) {
+            resultHistory.push_back(currentResult);
+            if (*(++evalCursor) != 0x1900) break;
+        }
+    }
+
+    return returnError;
 }
 
 unsigned char Calculator::Mainloop() {
 
-    while(!returnError)
-    {
-        returnError = ManageUserInput(GetDefaultButtonMap());
-        // TODO: Manage returnErrors
-    }
+    unsigned char returnError;
+
+    while(!(returnError = ManageUserInput(GetDefaultButtonMap()) ) );
+
+    // TODO: manage returnError.
+
     return 0;
 }
 
