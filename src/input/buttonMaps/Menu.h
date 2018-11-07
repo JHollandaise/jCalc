@@ -6,6 +6,7 @@
 #define JCALC_MENU_H
 
 #include <map>
+#include <vector>
 
 namespace ButtonMapMenu {
     static std::vector<std::map<unsigned char, unsigned short> >Hyperbolic {

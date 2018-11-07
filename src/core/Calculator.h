@@ -27,7 +27,7 @@ public:
                   inputMethod(true),
                   calculatorBase(0x5B00),
                   currentButtonToken(0x0000U),
-                  evaluator(){};
+                  evaluator(&evalCursor){};
 
     /**
      * Takes a given user input and determines the next operation the calculator will carry out.

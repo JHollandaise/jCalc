@@ -3,6 +3,12 @@
 //
 
 #include "Evaluator.h"
+#include <cstdint>
+#include <cmath>
+#include <limits>
+#include <stdlib.h>
+
+
 
 CalculationResult Evaluator::Expr(bool get) {
     CalculationResult result(Term(get));
@@ -42,9 +48,10 @@ CalculationResult Evaluator::IPrimary(bool get) {
 
     switch (**evalCursor) {
         case 0x1200 :
-            return -IPrimary(true);
-        case 0x1201 :
             return IPrimary(true);
+        case 0x1201 :
+        case 0x1300 :
+            return -IPrimary(true);
         default:
             if( ((**evalCursor) & 0xFF00U) == 0x1000) {
                 CalculationResult result(Number(false));
@@ -77,7 +84,7 @@ CalculationResult Evaluator::Primary(bool get, bool fallthrough) {
                 return result;
             else if (**evalCursor!=0x1500)
                 // TODO: syntax error
-                return Error(0x0000);
+                return Error(0x00);
             break;
         case 0x1A00 :
             result = Constant(**evalCursor);
@@ -86,7 +93,7 @@ CalculationResult Evaluator::Primary(bool get, bool fallthrough) {
         default:
             // TODO: implement 1 multiplier
             if(fallthrough) return CalculationResult();
-            return Error(0x0000);
+            return Error(0x00);
     }
     if(
             ( ((**evalCursor) & 0xFF00U ) == 0x2400) ||
@@ -97,6 +104,49 @@ CalculationResult Evaluator::Primary(bool get, bool fallthrough) {
     }
     return result*=Primary(false, true);
 
+
+}
+
+CalculationResult Evaluator::Number(bool get) {
+    // TODO: Hex input etc
+
+    if(get) (*evalCursor)++;
+
+    auto numStart(*evalCursor);
+
+    bool decimal(false);
+    unsigned int length(0);
+
+    // get digit string length
+    // while we are still seeing digit/decimal point
+    while(((**evalCursor)&0xFF00)==0x1000 || ((**evalCursor))==0x1100){
+        if((**evalCursor)==0x1100){
+            // TODO: syntax error
+            if(decimal) return Error(0x00);
+            else decimal = true;
+        }
+        else {
+            // TODO: stack error
+            if (length == std::numeric_limits<unsigned int>::max()) return Error(0x00);
+            else length++;
+        }
+    }
+    // go back to start of number
+    (*evalCursor) = numStart;
+
+    char numString[length+1];
+
+    for(auto i = 0; i<length;i++){
+        if((**evalCursor)==0x1100){
+            numString[i] = '.';
+        }
+        else numString[i]= static_cast<char>(((**evalCursor) & 0xFF) + 0x30);
+
+        (*evalCursor)++;
+    }
+    numString[length] = '\0';
+
+    return CalculationResult(atof(numString));
 
 }
 
@@ -137,8 +187,8 @@ void Evaluator::FuncPost(CalculationResult *result) {
             Factorial(result);
             break;
         default:
-            // TODO: implement 4th func fallthrough
-            *result = Error(0x0000);
+            // TODO: implement 4th func fallthrough error
+            *result = Error(0x00);
     }
 }
 

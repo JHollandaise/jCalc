@@ -21,11 +21,17 @@ public:
     unsigned char ClearStream();
 
     unsigned char MoveCursorRight();
+    unsigned char MoveCursorRight(int);
+
     unsigned char MoveCursorLeft();
+    unsigned char MoveCursorLeft(int);
 
     std::vector<unsigned short>* GetTokenStream(){ return &tokenStream; }
 
 private:
+    std::vector<unsigned short>::iterator GetImprimaryBeginning();
+
+    std::vector<unsigned short>::iterator GetImprimaryEnd();
 
     std::vector<unsigned short>::iterator cursorPos;
 

@@ -290,7 +290,6 @@ std::map<unsigned char, unsigned short> * Calculator::GetDefaultButtonMap(){
         case 0x5803 :
             return &ButtonMapsBaseN::Default;
         default:
-            // Flora is (not) Gay?
             return nullptr;
     }
 }

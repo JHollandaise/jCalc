@@ -5,14 +5,26 @@
 #ifndef JCALC_CALCULATIONRESULT_H
 #define JCALC_CALCULATIONRESULT_H
 
+#include "ResultValue.h"
 
+/*
+ * 16 byte struct as a general representation for a calculation result
+ *
+ * Implements casting between
+ * */
 struct CalculationResult {
 
     // TODO: add initialisation
-    CalculationResult(const CalculationResult& _calculationResult) {numerator = _calculationResult.numerator;};
-    CalculationResult() : numerator(0){};
+    CalculationResult(const CalculationResult& _calculationResult)
+    {};
+    CalculationResult(double _resultValueReal);
 
-    long numerator;
+    CalculationResult();
+
+    unsigned short resultType;
+
+    ResultValue resultValueReal;
+    ResultValue resultValueImaj;
 
     CalculationResult& operator=(const CalculationResult&);
 

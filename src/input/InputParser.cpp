@@ -44,13 +44,24 @@ unsigned char InputParser::ClearStream() {
 
 unsigned char InputParser::MoveCursorRight() {
 
-    if(cursorPos != tokenStream.end()) cursorPos++;
+    return MoveCursorRight(1);
+}
+
+unsigned char InputParser::MoveCursorRight(int distance) {
+
+    if(cursorPos != tokenStream.end()) cursorPos += distance;
+
+    return 0;
+}
+
+unsigned char InputParser::MoveCursorLeft(int distance) {
+
+    if(cursorPos != tokenStream.begin()) cursorPos-= distance;
 
     return 0;
 }
 
 unsigned char InputParser::MoveCursorLeft() {
 
-    if(cursorPos != tokenStream.begin()) cursorPos--;
-    return 0;
+    return MoveCursorLeft(1);
 }

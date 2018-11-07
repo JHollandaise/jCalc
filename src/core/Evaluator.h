@@ -14,6 +14,7 @@ class Evaluator {
 
 public:
 
+    explicit Evaluator(std::vector<unsigned short>::iterator* evalCursor) : evalCursor(evalCursor) {};
     // TODO: set at init
     unsigned char returnError{0};
 
