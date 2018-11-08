@@ -20,6 +20,9 @@ public:
 
     CalculationResult Expr(bool get);
 
+    std::vector<unsigned short>::iterator* tokenStreamEnd;
+    std::vector<unsigned short>::iterator* evalCursor;
+
 private:
 
     CalculationResult Term(bool get);
@@ -34,41 +37,33 @@ private:
 
     CalculationResult Error(unsigned char);
 
-    void FuncPost(CalculationResult *result);
+    void FuncPost(CalculationResult& result);
 
-    void Square(CalculationResult* result);
+    void Square(CalculationResult& result);
 
-    void XPowY(CalculationResult *result);
+    void XPowY(CalculationResult& result);
 
-    void XPowNegOne(CalculationResult *result);
+    void XPowNegOne(CalculationResult& result);
 
-    void XPowThree(CalculationResult *result);
+    void XPowThree(CalculationResult& result);
 
-    void Permute(CalculationResult *result);
+    void Permute(CalculationResult& result);
 
-    void Combine(CalculationResult *result);
+    void Combine(CalculationResult& result);
 
-    void Degree(CalculationResult* result);
+    void Degree(CalculationResult& result);
 
-    void Radian(CalculationResult* result);
+    void Radian(CalculationResult& result);
 
-    void Gradian(CalculationResult* result);
+    void Gradian(CalculationResult& result);
 
-    void Percent(CalculationResult* result);
+    void Percent(CalculationResult& result);
 
-    void Factorial(CalculationResult* result);
+    void Factorial(CalculationResult& result);
 
-    CalculationResult Constant(unsigned short token);
-
-
+    CalculationResult Constant(std::vector<unsigned short>::iterator* token);
 
 
-
-
-private:
-
-    const std::vector<unsigned short>::iterator tokenStreamEnd;
-    std::vector<unsigned short>::iterator* evalCursor;
 };
 
 

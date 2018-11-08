@@ -60,6 +60,7 @@ private:
     std::vector<CalculationResult> resultHistory;
 
     std::vector<unsigned short>::iterator evalCursor;
+    std::vector<unsigned short>::iterator tokenStreamEnd;
 
     // insert(1)/replace(0)
     bool inputMethod;

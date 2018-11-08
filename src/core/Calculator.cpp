@@ -253,13 +253,14 @@ unsigned short Calculator::GetMenuToken(unsigned char page, unsigned short selec
 unsigned char Calculator::CalculateResult() {
 
     evalCursor = inputParser.GetTokenStream()->begin();
-
+    tokenStreamEnd = inputParser.GetTokenStream()->end();
+    evaluator.evalCursor = &evalCursor;
+    evaluator.tokenStreamEnd = &tokenStreamEnd;
     unsigned char returnError;
 
-
+    CalculationResult currentResult(0);
     for (;;) {
-        // TODO: add assignment to CalculationResult
-        CalculationResult currentResult(evaluator.Expr(false));
+        currentResult=evaluator.Expr(false);
 
         if(!(returnError = evaluator.returnError)) {
             resultHistory.push_back(currentResult);

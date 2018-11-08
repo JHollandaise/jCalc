@@ -47,6 +47,7 @@ CalculationResult Evaluator::IPrimary(bool get) {
     if (get) (*evalCursor)++;
 
     switch (**evalCursor) {
+        // unary operators
         case 0x1200 :
             return IPrimary(true);
         case 0x1201 :
@@ -60,7 +61,8 @@ CalculationResult Evaluator::IPrimary(bool get) {
                         ( ((**evalCursor) & 0xFF00U ) == 0x2500) ||
                         ( ((**evalCursor) & 0xFF00U ) == 0x2600)
                     ) {
-                    FuncPost(&result);
+                    // will develop result (square etc)
+                    FuncPost(result);
                 }
                 return result*=Primary(false,true);
             }
@@ -77,22 +79,28 @@ CalculationResult Evaluator::Primary(bool get, bool fallthrough) {
         case 0x1700 :
             result=Expr(true);
             if (
-                        (*evalCursor==tokenStreamEnd) ||
+                        (evalCursor==tokenStreamEnd) ||
                         (**evalCursor == 0x1900) ||
                         (**evalCursor == 0x1901)
                     )
                 return result;
-            else if (**evalCursor!=0x1500)
+            else if ((**evalCursor & 0xFF00U)!=0x1500)
                 // TODO: syntax error
                 return Error(0x00);
-            break;
+
+            else {
+                (**evalCursor)++;
+                break;
+            }
         case 0x1A00 :
-            result = Constant(**evalCursor);
+            result = Constant(evalCursor);
             break;
         // TODO: implement other options here (variables etc...)
         default:
             // TODO: implement 1 multiplier
-            if(fallthrough) return CalculationResult();
+            if(fallthrough) return CalculationResult(1);
+
+            // TODO: Check for empty stream
             return Error(0x00);
     }
     if(
@@ -100,7 +108,7 @@ CalculationResult Evaluator::Primary(bool get, bool fallthrough) {
             ( ((**evalCursor) & 0xFF00U ) == 0x2500) ||
             ( ((**evalCursor) & 0xFF00U ) == 0x2600)
             ) {
-        FuncPost(&result);
+        FuncPost(result);
     }
     return result*=Primary(false, true);
 
@@ -150,7 +158,7 @@ CalculationResult Evaluator::Number(bool get) {
 
 }
 
-void Evaluator::FuncPost(CalculationResult *result) {
+void Evaluator::FuncPost(CalculationResult &result) {
     switch(**evalCursor) {
         // TODO: Implement all type 4 functions
         case 0x2400 :
@@ -188,8 +196,56 @@ void Evaluator::FuncPost(CalculationResult *result) {
             break;
         default:
             // TODO: implement 4th func fallthrough error
-            *result = Error(0x00);
+
     }
+}
+
+void Evaluator::Square(CalculationResult& result) {
+
+}
+
+void Evaluator::XPowY(CalculationResult& result) {
+
+}
+
+void Evaluator::XPowNegOne(CalculationResult& result) {
+
+}
+
+void Evaluator::XPowThree(CalculationResult& result) {
+
+}
+
+void Evaluator::Permute(CalculationResult& result) {
+
+}
+
+void Evaluator::Combine(CalculationResult& result) {
+
+}
+
+void Evaluator::Degree(CalculationResult& result) {
+
+}
+
+void Evaluator::Radian(CalculationResult& result) {
+
+}
+
+void Evaluator::Gradian(CalculationResult& result) {
+
+}
+
+void Evaluator::Percent(CalculationResult& result) {
+
+}
+
+void Evaluator::Factorial(CalculationResult& result) {
+
+}
+
+CalculationResult Evaluator::Constant(std::vector<unsigned short>::iterator* token) {
+    return CalculationResult();
 }
 
 
