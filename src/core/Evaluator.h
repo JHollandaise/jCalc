@@ -33,33 +33,9 @@ private:
 
     CalculationResult Number(bool get);
 
-    CalculationResult Digits(bool get);
-
     CalculationResult Error(unsigned char);
 
     void FuncPost(CalculationResult& result);
-
-    void Square(CalculationResult& result);
-
-    void XPowY(CalculationResult& result);
-
-    void XPowNegOne(CalculationResult& result);
-
-    void XPowThree(CalculationResult& result);
-
-    void Permute(CalculationResult& result);
-
-    void Combine(CalculationResult& result);
-
-    void Degree(CalculationResult& result);
-
-    void Radian(CalculationResult& result);
-
-    void Gradian(CalculationResult& result);
-
-    void Percent(CalculationResult& result);
-
-    void Factorial(CalculationResult& result);
 
     CalculationResult Constant(std::vector<unsigned short>::iterator* token);
 

@@ -5,6 +5,7 @@
 #ifndef JCALC_CALCULATIONRESULT_H
 #define JCALC_CALCULATIONRESULT_H
 
+#include <tuple>
 #include "ResultValue.h"
 
 /*
@@ -14,24 +15,36 @@
  * */
 struct CalculationResult {
 
+    CalculationResult(double Real, double Imaj):
+            realIsSurd(false),imajIsSurd(false),resultValueReal(Real),resultValueImaj(Imaj){};
 
-    // TODO: RESULT TYPE
-    explicit CalculationResult(double _resultValueReal = 0):
-        resultType(0x00),resultValueReal(_resultValueReal),resultValueImaj(0){};
-    CalculationResult(double _resultValueReal, double _resultValueImaj):
-        resultType(0x00),resultValueReal(_resultValueReal),resultValueImaj(_resultValueImaj){};
+    CalculationResult(double Real, SurdFrac Imaj):
+            realIsSurd(false),imajIsSurd(true),resultValueReal(Real),resultValueImaj(Imaj){};
 
-    CalculationResult(bool n1SignReal, bool n2SignReal, uint8_t n1Real, uint8_t n2Real, uint8_t s1Real, uint8_t s2Real, uint8_t dReal,
-                      bool n1SignImaj, bool n2SignImaj, uint8_t n1Imaj, uint8_t n2Imaj, uint8_t s1Imaj, uint8_t s2Imaj,uint8_t dImaj):
-        resultType(0x11),resultValueReal(n1SignReal,n2SignReal,n1Real,n2Real,s1Real,s2Real,dReal),
-        resultValueImaj(n1SignImaj,n2SignImaj,n1Imaj,n2Imaj,s1Imaj,s2Imaj,dImaj){};
+    CalculationResult(SurdFrac Real, double Imaj):
+            realIsSurd(true),imajIsSurd(false),resultValueReal(Real),resultValueImaj(Imaj){};
+
+    CalculationResult(SurdFrac Real, SurdFrac Imaj):
+            realIsSurd(true),imajIsSurd(true),resultValueReal(Real),resultValueImaj(Imaj){};
+
+    explicit CalculationResult(double real = 0):
+        CalculationResult(real, 0){};
+
+    explicit CalculationResult(SurdFrac real):
+        CalculationResult(real, 0){};
 
 
-    // 00: d d; 10: s d; 20; p d
-    uint8_t resultType;
+    bool realIsSurd;
+    bool imajIsSurd;
 
     ResultValue resultValueReal;
     ResultValue resultValueImaj;
+
+    // (numerator,denominator,error,exception)
+    std::tuple<bool, unsigned int, unsigned int, double, uint8_t> GetFractionalApproximation(double, unsigned int, unsigned int);
+    // TODO: add PiFractionalApproximation
+    double GetFloatingApproximation(const SurdFrac&);
+
 
 
     CalculationResult& operator+=(const CalculationResult&);
@@ -41,12 +54,26 @@ struct CalculationResult {
     CalculationResult& operator/=(const CalculationResult&);
 
     CalculationResult operator-();
-};
 
-CalculationResult &CalculationResult::operator+=(const CalculationResult &C) {
-    // TODO: check for which result type to default to
-    return *this;
-}
+//            Square(result);
+//            XPowY(result);
+//            XPowNegOne(result);
+//            XPowThree(result);
+//            Permute(result);
+//            Combine(result);
+//            Degree(result);
+//            Radian(result);
+//            Gradian(result);
+//            Percent(result);
+//            Factorial(result);
+//
+    CalculationResult& xPowY(const CalculationResult&);
+    CalculationResult& Permute(const CalculationResult&);
+    CalculationResult& Combine(const CalculationResult&);
+    CalculationResult& Factorial(const CalculationResult&);
+
+
+};
 
 
 #endif //JCALC_CALCULATIONRESULT_H
