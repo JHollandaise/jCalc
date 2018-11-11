@@ -3,17 +3,17 @@
 //
 #include "MathFunc.h"
 
-unsigned MathFunc::GCD(unsigned u, unsigned v) {
+unsigned long MathFunc::GCD(unsigned long u, unsigned long v) {
     while ( v != 0) {
-        unsigned r = u % v;
+        unsigned long r = u % v;
         u = v;
         v = r;
     }
     return u;
 }
 
-unsigned MathFunc::GCD(std::vector<unsigned int> numArray) {
-    std::vector<unsigned int> devisors(numArray);
+unsigned long MathFunc::GCD(std::vector<unsigned long> numArray) {
+    std::vector<unsigned long> devisors(numArray);
 
     for(auto i : numArray){
         *devisors.begin() = GCD(*devisors.begin(),i);
@@ -22,7 +22,24 @@ unsigned MathFunc::GCD(std::vector<unsigned int> numArray) {
 }
 
 
-unsigned MathFunc::LCM(unsigned u, unsigned v) {
+unsigned long MathFunc::LCM(unsigned long u, unsigned long v) {
     return (u*v)/GCD(u,v);
 }
 
+unsigned long MathFunc::DivideSurd(unsigned long surd) {
+    unsigned long devisor(1);
+
+    for(auto i = 2; (i*i) < surd ;i++){
+        if( !(surd % (i*i)) ){
+            surd /= (i*i);
+            devisor *= i;
+        }
+    }
+
+    return devisor;
+}
+
+bool MathFunc::ProductTupleSort(std::tuple<unsigned long, long, char> u,
+        std::tuple<unsigned long, long, char> v) {
+    return ( std::get<0>(u) < std::get<0>(v) );
+}

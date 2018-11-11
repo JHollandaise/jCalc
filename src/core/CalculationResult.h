@@ -41,9 +41,9 @@ struct CalculationResult {
     ResultValue resultValueImaj;
 
     // (numerator,denominator,error,exception)
-    std::tuple<bool, unsigned int, unsigned int, double, uint8_t> GetFractionalApproximation(double, unsigned int, unsigned int);
+    std::tuple<long, unsigned long, double> GetFractionalApproximation(double, unsigned long, unsigned long);
     // TODO: add PiFractionalApproximation
-    double GetFloatingApproximation(const SurdFrac&);
+    double GetFloatingApproximation(const SurdFrac<short, unsigned short, uint8_t> &);
 
 
 
