@@ -21,7 +21,6 @@ struct SurdFrac{
     // init with FractionalApproximation
     explicit SurdFrac(std::tuple<long, unsigned long, double>);
 
-
     N n1;
     N n2;
     S s1;
@@ -43,6 +42,7 @@ struct SurdFrac{
 
 private:
     void SimplifyDenominator();
+    void TidySurd();
 };
 
 #endif //JCALC_SURDFRAC_H

@@ -71,6 +71,7 @@ SurdFrac<N,S,D>& SurdFrac<N,S,D>::operator+=(const SurdFrac<N,S,D> &rhs) {
     return *this;
 
 }
+
 template<typename N, typename S, typename D>
 SurdFrac<N,S,D> SurdFrac<N,S,D>::operator+(const SurdFrac<N,S,D> &rhs) {
     SurdFrac<N,S,D> lhs(*this);
@@ -81,8 +82,8 @@ template<typename N, typename S, typename D>
 SurdFrac<N,S,D> &SurdFrac<N,S,D>::operator-=(const SurdFrac<N,S,D> &rhs) {
     SurdFrac<N,S,D> rhsNeg(rhs);
 
-    rhs.n1*=-1;
-    rhs.n2*=-1;
+    rhs.n1=(-rhs.n1);
+    rhs.n2=(-rhs.n2);
 
     return *this += rhsNeg;
 }
@@ -138,7 +139,7 @@ SurdFrac<N,S,D> &SurdFrac<N,S,D>::operator*=(const SurdFrac &rhs) {
         std::get<0>(prod) /= (devisor * devisor);
         std::get<1>(prod) *= devisor;
 
-        commonFactor = MathFunc::GCD(commonFactor, std::abs( std::get<1>(prod) ) );
+        commonFactor = MathFunc::GCD(commonFactor, (unsigned long)std::abs( std::get<1>(prod) ) );
     }
 
     if ( ((d * rhs.d) / commonFactor) > std::numeric_limits<D>::max() ) throw std::bad_cast();
@@ -159,21 +160,68 @@ SurdFrac<N,S,D> &SurdFrac<N,S,D>::operator*=(const SurdFrac &rhs) {
         n1 = (N) std::get<1>(products[0]);
         s1 = (S) std::get<0>(products[0]);
 
-        n1 = (N) std::get<1>(products[1]);
-        s1 = (S) std::get<0>(products[1]);
+        n2 = (N) std::get<1>(products[1]);
+        s2 = (S) std::get<0>(products[1]);
     }
 
+    TidySurd();
     return *this;
 }
 
 template<typename N, typename S, typename D>
-void SurdFrac<N,S,D>::SimplifyDenominator() {
-    uint8_t devisor;
+SurdFrac<N,S,D> SurdFrac<N,S,D>::operator*(const SurdFrac &rhs) {
+    SurdFrac<N,S,D> lhs(*this);
+    return lhs *= rhs;
+}
 
-    if ((devisor = (uint8_t) MathFunc::GCD({n1, n2, d})) > 1) {
+template<typename N, typename S, typename D>
+SurdFrac<N,S,D>& SurdFrac<N,S,D>::operator/=(const SurdFrac &rhs) {
+    long newDenominator(rhs.n1*rhs.n1*rhs.s2 - rhs.n2*rhs.n2*rhs.s2);
+    long newN1(rhs.d*rhs.n1);
+    long newN2(-rhs.d*rhs.n2);
+
+    if(newDenominator < 0){
+        newN1 = (-newN1);
+        newN2 = (-newN2);
+        newDenominator = -newDenominator;
+    }
+
+    if(newDenominator > std::numeric_limits<D>::max() ||
+       newN1 > std::numeric_limits<N>::max() ||
+       newN2 > std::numeric_limits<N>::max() ) throw std::bad_cast();
+
+    SurdFrac inverseSurd((N)newN1, (N)newN2, rhs.s1, rhs.s2, (D)newDenominator);
+
+    return *this *= inverseSurd;
+}
+
+template<typename N, typename S, typename D>
+SurdFrac<N,S,D> SurdFrac<N,S,D>::operator/(const SurdFrac &rhs) {
+    SurdFrac<N,S,D> lhs(*this);
+    return lhs /= rhs;
+}
+
+template<typename N, typename S, typename D>
+void SurdFrac<N,S,D>::SimplifyDenominator() {
+    D devisor;
+
+    if ((devisor = (D) MathFunc::GCD({n1, n2, d})) > 1) {
         n1 /= devisor;
         n2 /= devisor;
         d /= devisor;
+    }
+}
+
+template<typename N, typename S, typename D>
+void SurdFrac<N, S, D>::TidySurd() {
+    if(s1 > s2){
+        S newS1 = s2;
+        s2 = s1;
+        s1 = newS1;
+
+        N newN1 = n2;
+        n2 = n1;
+        n1 = newN1;
     }
 }
 

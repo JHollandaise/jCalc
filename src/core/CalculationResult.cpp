@@ -56,6 +56,14 @@ CalculationResult &CalculationResult::operator+=(const CalculationResult &rhs) {
     return *this;
 }
 
+CalculationResult CalculationResult::operator+(const CalculationResult& rhs) {
+    CalculationResult lhs(*this);
+
+    return lhs += rhs;
+}
+
+
+
 std::tuple<long, unsigned long, double> CalculationResult::GetFractionalApproximation(double floatingValue,
         unsigned long maxnum, unsigned long maxden) {
 

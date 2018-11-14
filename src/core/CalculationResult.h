@@ -18,19 +18,19 @@ struct CalculationResult {
     CalculationResult(double Real, double Imaj):
             realIsSurd(false),imajIsSurd(false),resultValueReal(Real),resultValueImaj(Imaj){};
 
-    CalculationResult(double Real, SurdFrac Imaj):
+    CalculationResult(double Real, SurdFrac<short, unsigned short, uint8_t> Imaj):
             realIsSurd(false),imajIsSurd(true),resultValueReal(Real),resultValueImaj(Imaj){};
 
-    CalculationResult(SurdFrac Real, double Imaj):
+    CalculationResult(SurdFrac<short, unsigned short, uint8_t> Real, double Imaj):
             realIsSurd(true),imajIsSurd(false),resultValueReal(Real),resultValueImaj(Imaj){};
 
-    CalculationResult(SurdFrac Real, SurdFrac Imaj):
+    CalculationResult(SurdFrac<short, unsigned short, uint8_t> Real, SurdFrac<short, unsigned short, uint8_t> Imaj):
             realIsSurd(true),imajIsSurd(true),resultValueReal(Real),resultValueImaj(Imaj){};
 
     explicit CalculationResult(double real = 0):
         CalculationResult(real, 0){};
 
-    explicit CalculationResult(SurdFrac real):
+    explicit CalculationResult(SurdFrac<short, unsigned short, uint8_t> real):
         CalculationResult(real, 0){};
 
 
@@ -48,7 +48,10 @@ struct CalculationResult {
 
 
     CalculationResult& operator+=(const CalculationResult&);
+    CalculationResult  operator+(const CalculationResult&);
+
     CalculationResult& operator-=(const CalculationResult&);
+    CalculationResult operator-(const CalculationResult&);
 
     CalculationResult& operator*=(const CalculationResult&);
     CalculationResult& operator/=(const CalculationResult&);
