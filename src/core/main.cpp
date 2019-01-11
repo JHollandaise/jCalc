@@ -8,6 +8,7 @@
 
 int main()
 {
+    // contruct system initialiser
     Initialiser initialiser;
 
 }

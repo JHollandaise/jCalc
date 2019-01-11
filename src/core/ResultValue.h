@@ -12,13 +12,13 @@ union ResultValue {
     explicit ResultValue(double _floatingPoint):
         floatingPoint(_floatingPoint){};
 
-    ResultValue(SurdFrac _surdFrac):
+    explicit ResultValue(SurdFrac<short, unsigned short, uint8_t> _surdFrac):
         surdFrac(_surdFrac){};
 
     double floatingPoint;
 
     // ( ± n1*sqrt(s1) ± n2*sqrt(s2) ) / d
-    SurdFrac surdFrac;
+    SurdFrac<short, unsigned short, uint8_t> surdFrac;
 
 
 };

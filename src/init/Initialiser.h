@@ -18,6 +18,10 @@
 
 #endif
 
+/* handles init of primary calculator components
+ * calculator: handles calculation functionality
+ * TermInit/MbedInit: handles user input/output for terminal/embedded platforms
+ */
 
 class Initialiser {
 public:

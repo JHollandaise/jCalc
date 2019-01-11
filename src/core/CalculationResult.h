@@ -11,7 +11,7 @@
 /*
  * 16 byte struct as a general representation for a calculation result
  *
- * Implements casting between
+ * Implements casting between types and operations between given results
  * */
 struct CalculationResult {
 
@@ -43,7 +43,7 @@ struct CalculationResult {
     // (numerator,denominator,error,exception)
     std::tuple<long, unsigned long, double> GetFractionalApproximation(double, unsigned long, unsigned long);
     // TODO: add PiFractionalApproximation
-    double GetFloatingApproximation(const SurdFrac<short, unsigned short, uint8_t> &);
+    //double GetFloatingApproximation(const SurdFrac<short, unsigned short, uint8_t> &);
 
 
 
@@ -54,9 +54,12 @@ struct CalculationResult {
     CalculationResult operator-(const CalculationResult&);
 
     CalculationResult& operator*=(const CalculationResult&);
+    CalculationResult operator*(const CalculationResult&) const;
+
+
     CalculationResult& operator/=(const CalculationResult&);
 
-    CalculationResult operator-();
+    CalculationResult operator-() const;
 
 //            Square(result);
 //            XPowY(result);
@@ -70,10 +73,16 @@ struct CalculationResult {
 //            Percent(result);
 //            Factorial(result);
 //
-    CalculationResult& xPowY(const CalculationResult&);
+    //TODO: implement
+    /*
+    CalculationResult& XPowY(const CalculationResult&);
     CalculationResult& Permute(const CalculationResult&);
     CalculationResult& Combine(const CalculationResult&);
     CalculationResult& Factorial(const CalculationResult&);
+     */
+
+    CalculationResult& Conjugate();
+    const CalculationResult GetConjugate() const;
 
 
 };

@@ -39,7 +39,7 @@ unsigned long MathFunc::DivideSurd(unsigned long surd) {
     return devisor;
 }
 
-bool MathFunc::ProductTupleSort(std::tuple<unsigned long, long, char> u,
-        std::tuple<unsigned long, long, char> v) {
+bool MathFunc::ProductTupleSort(std::tuple<unsigned long, long> u,
+        std::tuple<unsigned long, long> v) {
     return ( std::get<0>(u) < std::get<0>(v) );
 }

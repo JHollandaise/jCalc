@@ -38,6 +38,7 @@ public:
     unsigned char ManageUserInput();
     unsigned char ManageUserInput(std::map< unsigned char, unsigned short>* buttonMap);
 
+
     unsigned char Mainloop();
 
 

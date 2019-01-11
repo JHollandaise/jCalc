@@ -17,11 +17,11 @@ CalculationResult &CalculationResult::operator+=(const CalculationResult &rhs) {
         SurdFrac<short, unsigned short, uint8_t> rhsReal;
 
         // try to get lhs as SurdFrac
-        if(!realIsSurd) lhsReal = SurdFrac<short, unsigned short, uint8_t>(GetFractionalApproximation(resultValueReal.floatingPoint,255U,255U));
+        if(!realIsSurd) lhsReal = SurdFrac<short, unsigned short, uint8_t>(GetFractionalApproximation(resultValueReal.floatingPoint,std::numeric_limits<short>::max(),std::numeric_limits<uint8_t>::max() ) );
         else lhsReal = resultValueReal.surdFrac;
 
         // try to get rhs as SurdFrac
-        if(!rhs.realIsSurd) rhsReal = SurdFrac<short, unsigned short, uint8_t>(GetFractionalApproximation(rhs.resultValueReal.floatingPoint,255U,255U));
+        if(!rhs.realIsSurd) rhsReal = SurdFrac<short, unsigned short, uint8_t>(GetFractionalApproximation(rhs.resultValueReal.floatingPoint,std::numeric_limits<short>::max(),std::numeric_limits<uint8_t>::max() ) );
         else rhsReal = rhs.resultValueReal.surdFrac;
 
         // try to add
@@ -62,6 +62,89 @@ CalculationResult CalculationResult::operator+(const CalculationResult& rhs) {
     return lhs += rhs;
 }
 
+CalculationResult &CalculationResult::operator-=(const CalculationResult &rhs) {
+    return *this +=(-rhs);
+}
+
+CalculationResult CalculationResult::operator-(const CalculationResult& rhs) {
+    CalculationResult lhs(*this);
+
+    return lhs -= rhs;
+}
+
+CalculationResult CalculationResult::operator-() const{
+    CalculationResult negResult(*this);
+
+    if(realIsSurd) negResult.resultValueReal.surdFrac = ( -negResult.resultValueReal.surdFrac);
+    else negResult.resultValueReal.floatingPoint = ( -negResult.resultValueReal.floatingPoint);
+
+    if(imajIsSurd) negResult.resultValueImaj.surdFrac = ( -negResult.resultValueImaj.surdFrac);
+    else negResult.resultValueImaj.floatingPoint = ( -negResult.resultValueImaj.floatingPoint);
+
+    return negResult;
+}
+
+CalculationResult &CalculationResult::operator*=(const CalculationResult &rhs) {
+
+    try {
+        SurdFrac<short, unsigned short, uint8_t> lhsReal;
+        SurdFrac<short, unsigned short, uint8_t> rhsReal;
+        SurdFrac<short, unsigned short, uint8_t> lhsImaj;
+        SurdFrac<short, unsigned short, uint8_t> rhsImaj;
+
+        // attempt to develop SurdFrac representation
+        if(!realIsSurd) lhsReal = SurdFrac<short, unsigned short, uint8_t>(GetFractionalApproximation(resultValueReal.floatingPoint,std::numeric_limits<short>::max(),std::numeric_limits<uint8_t>::max() ) );
+        else lhsReal = resultValueReal.surdFrac;
+
+        if(!rhs.realIsSurd) rhsReal = SurdFrac<short, unsigned short, uint8_t>(GetFractionalApproximation(rhs.resultValueReal.floatingPoint,std::numeric_limits<short>::max(),std::numeric_limits<uint8_t>::max() ) );
+        else rhsReal = rhs.resultValueReal.surdFrac;
+
+        if(!imajIsSurd) lhsImaj = SurdFrac<short, unsigned short, uint8_t>(GetFractionalApproximation(resultValueImaj.floatingPoint,std::numeric_limits<short>::max(),std::numeric_limits<uint8_t>::max() ) );
+        else lhsImaj = resultValueImaj.surdFrac;
+
+        if(!rhs.imajIsSurd) rhsImaj = SurdFrac<short, unsigned short, uint8_t>(GetFractionalApproximation(rhs.resultValueImaj.floatingPoint,std::numeric_limits<short>::max(),std::numeric_limits<uint8_t>::max() ) );
+        else rhsImaj = rhs.resultValueImaj.surdFrac;
+
+        try {
+            // attempt to get surd real part
+            resultValueReal.surdFrac = lhsReal*rhsReal - lhsImaj*rhsImaj;
+        }
+        catch (const std::bad_cast&) {
+            resultValueReal.floatingPoint = (resultValueReal.floatingPoint*rhs.resultValueReal.floatingPoint)
+                                            -(resultValueImaj.floatingPoint*rhs.resultValueImaj.floatingPoint);
+        }
+
+        try {
+            // attempt to get surd real part
+            resultValueImaj.surdFrac = lhsReal*rhsImaj + lhsImaj*rhsReal;
+        }
+        catch (const std::bad_cast&) {
+            resultValueImaj.floatingPoint = (resultValueReal.floatingPoint*rhs.resultValueImaj.floatingPoint)
+                                            +(resultValueImaj.floatingPoint*rhs.resultValueReal.floatingPoint);
+        }
+
+        return *this;
+
+    }
+    catch (const std::bad_cast&) {
+        resultValueReal.floatingPoint = (resultValueReal.floatingPoint*rhs.resultValueReal.floatingPoint)
+                            -(resultValueImaj.floatingPoint*rhs.resultValueImaj.floatingPoint);
+
+        resultValueImaj.floatingPoint = (resultValueReal.floatingPoint*rhs.resultValueImaj.floatingPoint)
+                                        +(resultValueImaj.floatingPoint*rhs.resultValueReal.floatingPoint);
+        return *this;
+    }
+}
+
+CalculationResult CalculationResult::operator*(const CalculationResult &) const{
+    return CalculationResult();
+}
+
+CalculationResult &CalculationResult::operator/=(const CalculationResult &rhs) {
+    CalculationResult devisor(rhs * rhs.GetConjugate());
+
+    return *this;
+}
 
 
 std::tuple<long, unsigned long, double> CalculationResult::GetFractionalApproximation(double floatingValue,
@@ -107,4 +190,17 @@ std::tuple<long, unsigned long, double> CalculationResult::GetFractionalApproxim
     error = floatingValueMag - ( (double) numerator / (double) denominator );
 
     return std::make_tuple((long)(numerator*sign),denominator,error);
+}
+
+CalculationResult &CalculationResult::Conjugate() {
+    if(imajIsSurd) resultValueImaj.surdFrac = -resultValueImaj.surdFrac;
+    else resultValueImaj.floatingPoint = -resultValueImaj.floatingPoint;
+
+    return *this;
+}
+
+const CalculationResult CalculationResult::GetConjugate() const{
+    CalculationResult conjugate(*this);
+
+    return conjugate.Conjugate();
 }

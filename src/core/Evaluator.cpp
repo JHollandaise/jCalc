@@ -195,12 +195,18 @@ void Evaluator::FuncPost(CalculationResult &result) {
 //            Factorial(result);
 //            break;
         default:
+            break;
             // TODO: implement 4th func fallthrough error
 
     }
 }
 
 CalculationResult Evaluator::Constant(std::vector<unsigned short>::iterator* token) {
+    return CalculationResult();
+}
+
+CalculationResult Evaluator::Error(unsigned char) {
+    //TODO: Implement
     return CalculationResult();
 }
 

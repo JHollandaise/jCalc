@@ -14,8 +14,8 @@ namespace MathFunc {
 
     unsigned long DivideSurd(unsigned long);
 
-    bool ProductTupleSort(std::tuple<unsigned long, long, char>,
-            std::tuple<unsigned long, long, char>);
+    bool ProductTupleSort(std::tuple<unsigned long, long>,
+            std::tuple<unsigned long, long>);
 }
 
 #endif //JCALC_MATHFUNC_H
