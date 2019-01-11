@@ -6,113 +6,99 @@
 #include "../input/buttonMaps/Maths.h"
 #include "../input/buttonMaps/Menu.h"
 #include "../input/buttonMaps/BaseN.h"
+#include "../GUI/tigr.h"
 
 
 unsigned char Calculator::ManageUserInput() {
 
 
-    unsigned char returnError;
-
     // user menu selection
     unsigned short menuSelection(0x0000);
 
-    // NULL token
-    if(currentButtonToken == 0x0000) return {};
+    switch (currentButtonToken & 0xFF00U){
+        case 0x0000 :
+            // NULL token
+            // TODO: add error throw
+            break;
+        case 0x5000 :
+            // executions
+            // TODO : add special execute tokens (M+ etc...)
+            // TODO : add error handle in here
+            CalculateResult();
+            break;
+        case 0x5100 :
+            if(currentButtonToken == 0x5100) {
+                // DEL key
+                inputParser.DelFromStream();
+            } else if(currentButtonToken == 0x5101) {
+                // AC key
+                inputParser.ClearStream();
+            }
+            // TODO: manage exception (else)
+            break;
+        case 0x5200 :
+            // change button map
+            switch (currentButtonToken) {
+                case 0x5200 :
+                    ManageUserInput(&ButtonMapMaths::RCL);
+                case 0x5201 :
+                    ManageUserInput(&ButtonMapMaths::Shift);
+                    break;
+                case 0x5202 :
+                    ManageUserInput(&ButtonMapMaths::Alpha);
+                    break;
+                case 0x5203 :
+                    ManageUserInput(&ButtonMapsBaseN::Shift);
+                    break;
+                case 0x5204 :
+                    ManageUserInput(&ButtonMapsBaseN::Alpha);
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 0x5400 :
+            // open menu
+            if ( (currentButtonToken & 0xFF00U) == 0x5400 ) {
+                while(!(menuSelection = GetMenuToken(0))){
+                    // TODO: implement incorrect option flash
+                }
+                currentButtonToken = menuSelection;
 
-    // simple tokens and functions (add to stream)
-    if (
-        // simple single tokens
-        ((currentButtonToken & 0xF000U) == 0x1000) ||
+                return ManageUserInput();
+            }
+            break;
+        case 0x5500 :
+            // move cursor
+            if(currentButtonToken == 0x5500) {
+                inputParser.MoveCursorLeft();
+            }
+            // TODO: add move cursor up/down
+            else if(currentButtonToken == 0x5503) {
+                inputParser.MoveCursorRight();
+            }
+            break;
+        case 0x5600 :
+            // toggle insert mode
+            // TODO: add check for end of stream
+            inputMethod = !inputMethod;
+            break;
+        case 0x5800 :
+            calcMode = currentButtonToken;
+        default :
+            // add to stream
+            inputParser.AddToStream(currentButtonToken,&inputMethod);
 
-        // simple functions
-        // Type 0 - Type 2
-        ( ((currentButtonToken & 0xFF00U) >= 0x2000) && ((currentButtonToken & 0xFF00U) < 0x2300) ) ||
-        // Type 5 - Type 7
-        ( ((currentButtonToken & 0xFF00U) >= 0x2500) && ((currentButtonToken & 0xFF00U) < 0x2800) )
-    ) {
-        returnError = inputParser.AddToStream(currentButtonToken, &inputMethod);
-        graphicsController.PrintTokenStream(inputParser.GetTokenStream());
     }
+    graphicsController.PrintTokenStream(inputParser.GetTokenStream(),screen);
+    // TODO: error handling
+    return 0;
 
-
-    // TODO : implement Type 3 and Type 4 functions
-
-
-
-    // execution command
-    if((currentButtonToken & 0xFF00U) == 0x5000) {
-        // TODO: implement special executions
-
-        returnError = CalculateResult();
-
-    }
-
-    // DEL key
-    if(currentButtonToken == 0x5100) {
-        inputParser.DelFromStream();
-        graphicsController.PrintTokenStream(inputParser.GetTokenStream());
-        return 0;
-    }
-
-    // AC
-    if(currentButtonToken == 0x5101) {
-        inputParser.ClearStream();
-        graphicsController.PrintTokenStream(inputParser.GetTokenStream());
-        return 0;
-    }
-
-    if((currentButtonToken & 0xFF00U) == 0x5200) {
-        switch (currentButtonToken) {
-            case 0x5200 :
-                returnError = ManageUserInput(&ButtonMapMaths::RCL);
-            case 0x5201 :
-                returnError = ManageUserInput(&ButtonMapMaths::Shift);
-                break;
-            case 0x5202 :
-                returnError = ManageUserInput(&ButtonMapMaths::Alpha);
-                break;
-            case 0x5203 :
-                returnError = ManageUserInput(&ButtonMapsBaseN::Shift);
-                break;
-            case 0x5204 :
-                returnError = ManageUserInput(&ButtonMapsBaseN::Alpha);
-                break;
-            default:
-                break;
-        }
-    }
-
-    // open menu
-    if ( (currentButtonToken & 0xFF00U) == 0x5400 ) {
-        while(!(menuSelection = GetMenuToken(0))){
-            // TODO: implement incorrect option flash
-        }
-        currentButtonToken = menuSelection;
-
-        return ManageUserInput();
-    }
-
-    if(currentButtonToken == 0x5500) {
-        inputParser.MoveCursorLeft();
-        graphicsController.PrintTokenStream(inputParser.GetTokenStream());
-    }
-
-    if(currentButtonToken == 0x5503) {
-        inputParser.MoveCursorRight();
-        graphicsController.PrintTokenStream(inputParser.GetTokenStream());
-    }
-
-    // change calculator mode
-    if( (currentButtonToken & 0xFF00U) == 0x5800 )
-        calcMode = currentButtonToken;
-
-
-    return returnError; // TODO: create fallthrough error
 }
 
 unsigned char Calculator::ManageUserInput(std::map<unsigned char, unsigned short> *buttonMap) {
 
-    currentButtonToken = userInputController.GetUserInput(buttonMap);
+    currentButtonToken = userInputController.GetUserInput(buttonMap,screen);
 
     return ManageUserInput();
 }
@@ -218,7 +204,7 @@ unsigned short Calculator::GetMenuToken(unsigned char page, unsigned short selec
     // TODO: show graphical menu
 
     // get selection from user
-    newSelection = userInputController.GetUserInput(&((*menuMap)[page]));
+    newSelection = userInputController.GetUserInput(&((*menuMap)[page]),screen);
 
     // check for page change
     // page up
@@ -271,11 +257,13 @@ unsigned char Calculator::CalculateResult() {
     return returnError;
 }
 
-unsigned char Calculator::Mainloop() {
+unsigned char Calculator::Mainloop(Tigr *bmp) {
 
     unsigned char returnError;
 
-    while(!(returnError = ManageUserInput(GetDefaultButtonMap()) ) );
+    screen = bmp;
+    ManageUserInput(GetDefaultButtonMap());
+
 
     // TODO: manage returnError.
 

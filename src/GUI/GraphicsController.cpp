@@ -5,24 +5,24 @@
 #include <curses.h>
 #include "GraphicsController.h"
 #include "../OperationMode.h"
-
+#include "tigr.h"
 
 
 #ifdef TERMINAL_EMULATE
-void GraphicsController::PrintTokenStream(std::vector<unsigned short>* tokenStream) {
+void GraphicsController::PrintTokenStream(std::vector<unsigned short>* tokenStream,Tigr *screen) {
     // clear the window
-    erase();
-    mvprintw(0,0,"{ ");
-
+    tigrClear(screen, tigrRGB(221, 219, 155));
+    tigrPrint(screen, tfont, 120, 110, tigrRGB(0xff, 0xff, 0xff), "{ ");
     for (auto token = tokenStream->begin(); token != tokenStream->end(); token++) {
 
-        if(token == tokenStream->begin()) printw("0x%x", *token);
+        if(token == tokenStream->begin())
+            tigrPrint(screen, tfont, 120, 110, tigrRGB(0xff, 0xff, 0xff), "0x%x", *token);
 
-        else printw(" ,0x%x", *token);
+        else tigrPrint(screen, tfont, 120, 110, tigrRGB(0xff, 0xff, 0xff), " ,0x%x", *token);
 
     }
 
-    printw(" }");
+    tigrPrint(screen, tfont, 120, 110, tigrRGB(0xff, 0xff, 0xff), " }");
 }
 #else
 void GraphicsController::PrintTokenStream(std::vector<unsigned short> tokenStream) {

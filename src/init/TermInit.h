@@ -3,6 +3,8 @@
 //
 
 #include "../ErrorMgt/Error.h"
+#include "../GUI/tigr.h"
+#include "../core/Calculator.h"
 
 #ifndef JCALC_TERMINIT_H
 #define JCALC_TERMINIT_H
@@ -14,10 +16,14 @@ public:
 
     ~TermInit() {DeInitialise();};
 
+    // graphics screen for terminal emulation
+//    Tigr *screen;
+
 private:
     unsigned char Initialise();
 
     void DeInitialise();
+
 
 };
 

@@ -34,7 +34,10 @@ private:
     TermInit termInit;
     MbedInit mbedInit;
 
+    Tigr *screen;
+
     void Initialise();
+
 };
 
 

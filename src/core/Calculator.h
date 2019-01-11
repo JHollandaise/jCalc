@@ -13,6 +13,7 @@
 #include "../GUI/GraphicsController.h"
 #include "CalculationResult.h"
 #include "Evaluator.h"
+#include "../GUI/tigr.h"
 
 /**
  * Manages the control of action depending on user input and configuration options.
@@ -29,6 +30,7 @@ public:
                   currentButtonToken(0x0000U),
                   evaluator(&evalCursor){};
 
+
     /**
      * Takes a given user input and determines the next operation the calculator will carry out.
      *
@@ -39,7 +41,7 @@ public:
     unsigned char ManageUserInput(std::map< unsigned char, unsigned short>* buttonMap);
 
 
-    unsigned char Mainloop();
+    unsigned char Mainloop(Tigr* screen);
 
 
 private:
@@ -73,7 +75,7 @@ private:
 
     unsigned  char CalculateResult();
 
-
+    Tigr *screen;
 
 };
 

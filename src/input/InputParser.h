@@ -7,12 +7,11 @@
 
 #include <vector>
 #include "Button.h"
-#include "../GUI/GraphicsStream.h"
 #include "../ErrorMgt/Error.h"
 
 class InputParser {
 public:
-    InputParser() : tokenStream(), graphicsStream() {cursorPos = tokenStream.end();};
+    InputParser() : tokenStream(){cursorPos = tokenStream.end();};
 
     unsigned char AddToStream(unsigned short, bool *);
 
@@ -29,15 +28,16 @@ public:
     std::vector<unsigned short>* GetTokenStream(){ return &tokenStream; }
 
 private:
-    std::vector<unsigned short>::iterator GetImprimaryBeginning();
 
-    std::vector<unsigned short>::iterator GetImprimaryEnd();
+    void MoveToFuncInsertPointLeft();
+
+    void GoToOpenParenthesis();
+    void GoToFuncInitiator();
 
     std::vector<unsigned short>::iterator cursorPos;
 
     std::vector<unsigned short> tokenStream;
 
-    GraphicsStream graphicsStream;
 };
 
 

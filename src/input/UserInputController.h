@@ -13,6 +13,7 @@
 #include "../InputDefs.h"
 #include "buttonMaps/Maths.h"
 #include "../ErrorMgt/Error.h"
+#include "../GUI/tigr.h"
 
 #ifdef TERMINAL_EMULATE
 #include <curses.h>
@@ -31,7 +32,7 @@ public:
                             recallPressed(false){};
 
     // listens for a user button press then returns the value of the button pressed
-    unsigned short GetUserInput(std::map<unsigned char, unsigned short>* buttonMap);
+    unsigned short GetUserInput(std::map<unsigned char, unsigned short>* buttonMap,Tigr *screen);
 
 
 

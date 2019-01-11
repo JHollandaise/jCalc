@@ -6,12 +6,13 @@
 #define JCALC_GRAPHICSCONTROLLER_H
 
 #include <vector>
+#include "../GUI/tigr.h"
 
 
 class GraphicsController {
 
 public:
-    void PrintTokenStream(std::vector<unsigned short>* tokenStream);
+    void PrintTokenStream(std::vector<unsigned short>* tokenStream,Tigr *screen);
 };
 
 
