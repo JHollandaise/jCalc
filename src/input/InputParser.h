@@ -29,10 +29,10 @@ public:
 
 private:
 
-    void MoveToFuncInsertPointLeft();
+    void MoveOutOfPrimaryChain(bool direction,
+                               std::vector<unsigned short, std::__1::allocator<unsigned short>>::iterator &cursor);
 
-    void GoToOpenParenthesis();
-    void GoToFuncInitiator();
+    void MoveToPrimaryEnd(bool envType, bool direction, std::vector<unsigned short>::iterator &cursor);
 
     std::vector<unsigned short>::iterator cursorPos;
 

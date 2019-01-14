@@ -5,10 +5,10 @@
 #ifndef JCALC_INITIALISER_H
 #define JCALC_INITIALISER_H
 
-#include "../OperationMode.h"
+#include "OperationMode.h"
 
 
-#include "../core/Calculator.h"
+#include "core/Calculator.h"
 #include "MbedInit.h"
 
 

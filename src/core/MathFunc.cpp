@@ -27,9 +27,11 @@ unsigned long MathFunc::LCM(unsigned long u, unsigned long v) {
 }
 
 unsigned long MathFunc::DivideSurd(unsigned long surd) {
+    // reduce surd and return devisor
+
     unsigned long devisor(1);
 
-    for(auto i = 2; (i*i) < surd ;i++){
+    for(auto i = 2; (i*i) <= surd ;i++){
         if( !(surd % (i*i)) ){
             surd /= (i*i);
             devisor *= i;

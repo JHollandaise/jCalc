@@ -2,9 +2,9 @@
 // Created by Joseph Holland  on 10/04/2018.
 //
 
-#include "../ErrorMgt/Error.h"
-#include "../GUI/tigr.h"
-#include "../core/Calculator.h"
+#include "ErrorMgt/Error.h"
+#include "GUI/tigr.h"
+#include "core/Calculator.h"
 
 #ifndef JCALC_TERMINIT_H
 #define JCALC_TERMINIT_H

@@ -6,7 +6,7 @@
 #include "Initialiser.h"
 
 
-void Initialiser::Initialise() {
+void Initialiser::  Initialise() {
 
 #ifdef TERMINAL_EMULATE
     termInit = TermInit();

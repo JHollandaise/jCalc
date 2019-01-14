@@ -5,7 +5,7 @@
 #ifndef JCALC_BUTTON_H
 #define JCALC_BUTTON_H
 
-#include "../InputDefs.h"
+#include "InputDefs.h"
 
 /* Structure defining the type nature of the button that was pressed
  */

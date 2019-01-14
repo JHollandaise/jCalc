@@ -6,7 +6,7 @@
 #define JCALC_GRAPHICSCONTROLLER_H
 
 #include <vector>
-#include "../GUI/tigr.h"
+#include "GUI/tigr.h"
 
 
 class GraphicsController {

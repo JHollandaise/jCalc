@@ -3,7 +3,7 @@
 //
 
 
-#include "../init/Initialiser.h"
+#include "init/Initialiser.h"
 
 
 int main()

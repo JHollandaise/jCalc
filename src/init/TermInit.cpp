@@ -3,13 +3,12 @@
 //
 
 #include "TermInit.h"
-#include "../GUI/tigr.h"
+#include "GUI/tigr.h"
 
 unsigned char TermInit::Initialise() {
 
 
 
-    // TODO: set up error checking for curses window initialisation
     return 0;
 }
 

@@ -4,7 +4,7 @@
 
 #include <curses.h>
 #include "GraphicsController.h"
-#include "../OperationMode.h"
+#include "OperationMode.h"
 #include "tigr.h"
 
 

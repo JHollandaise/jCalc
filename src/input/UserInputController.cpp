@@ -3,8 +3,8 @@
 //
 
 #include "UserInputController.h"
-#include "../OperationMode.h"
-#include "../GUI/tigr.h"
+#include "OperationMode.h"
+#include "GUI/tigr.h"
 
 #ifdef TERMINAL_EMULATE
 

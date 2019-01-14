@@ -5,15 +5,15 @@
 #ifndef JCALC_CALCULATOR_H
 #define JCALC_CALCULATOR_H
 
-#include "../ErrorMgt/Error.h"
-#include "../input/InputParser.h"
-#include "../input/UserInputController.h"
-#include "../input/Button.h"
-#include "../InputDefs.h"
-#include "../GUI/GraphicsController.h"
+#include "ErrorMgt/Error.h"
+#include "input/InputParser.h"
+#include "input/UserInputController.h"
+#include "input/Button.h"
+#include "InputDefs.h"
+#include "GUI/GraphicsController.h"
 #include "CalculationResult.h"
 #include "Evaluator.h"
-#include "../GUI/tigr.h"
+#include "GUI/tigr.h"
 
 /**
  * Manages the control of action depending on user input and configuration options.

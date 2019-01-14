@@ -7,13 +7,13 @@
 #ifndef JCALC_USERINPUTCONTROLLER_H
 #define JCALC_USERINPUTCONTROLLER_H
 
-#include "../OperationMode.h"
+#include "OperationMode.h"
 
 #include "Button.h"
-#include "../InputDefs.h"
+#include "InputDefs.h"
 #include "buttonMaps/Maths.h"
-#include "../ErrorMgt/Error.h"
-#include "../GUI/tigr.h"
+#include "ErrorMgt/Error.h"
+#include "GUI/tigr.h"
 
 #ifdef TERMINAL_EMULATE
 #include <curses.h>

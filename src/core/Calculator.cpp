@@ -3,10 +3,10 @@
 //
 
 #include "Calculator.h"
-#include "../input/buttonMaps/Maths.h"
-#include "../input/buttonMaps/Menu.h"
-#include "../input/buttonMaps/BaseN.h"
-#include "../GUI/tigr.h"
+#include "input/buttonMaps/Maths.h"
+#include "input/buttonMaps/Menu.h"
+#include "input/buttonMaps/BaseN.h"
+#include "GUI/tigr.h"
 
 
 unsigned char Calculator::ManageUserInput() {
@@ -224,7 +224,8 @@ unsigned short Calculator::GetMenuToken(unsigned char page, unsigned short selec
         return GetMenuToken(page,selectedOption);
     }
 
-    // multi-depth (INCLUDE REMAINING OPTIONS)
+    // multi-depth
+    //TODO: (INCLUDE REMAINING OPTIONS)
     else if((newSelection & 0xF000U ) == 0x3000)
         {
         // get correct lower depth menu page
