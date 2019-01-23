@@ -49,7 +49,7 @@ public:
 
 
     // push initialised screen to objects
-    void AddScreen(Tigr* screen) {graphicsController.SetScreen(screen); userInputController.SetScreen(screen);}
+    inline void AddScreen(Tigr* screen) {graphicsController.SetScreen(screen); userInputController.SetScreen(screen);}
 
 
 private:

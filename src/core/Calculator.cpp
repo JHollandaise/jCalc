@@ -112,6 +112,30 @@ void Calculator::ManageUserInput(std::map<unsigned char, unsigned short> *button
 
 
 void Calculator::ManageMenuInput() {
+    MenuPage* selectedMenu;
+
+    switch(currentButtonToken) {
+        case 0x5400 :
+            // hyperbolic
+            selectedMenu = &MenuPages::hyperbolic;
+            break;
+        case 0x5401 :
+            // mode
+            selectedMenu = &MenuPages::mode;
+            break;
+        case 0x5402 :
+            // drg
+            selectedMenu = &MenuPages::drg;
+            break;
+        case 0x5406 :
+            // setup
+            selectedMenu = &MenuPages::setup;
+        // TODO: implement remaining menus
+    }
+
+    // provide IO to menu
+    selectedMenu->setIOControllers(&graphicsController,&userInputController);
+
 }
 
 unsigned char Calculator::CalculateResult() {

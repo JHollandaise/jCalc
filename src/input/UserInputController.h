@@ -44,7 +44,7 @@ public:
     void SetAlphaPressed(bool value)  {alphaPressed = value;}
     void SetRecallPressed(bool value) {recallPressed = value;}
 
-    void SetScreen(Tigr* newScreen) {screen = newScreen;}
+    inline void SetScreen(Tigr* newScreen) {screen = newScreen;}
 
 
 

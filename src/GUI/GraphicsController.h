@@ -16,7 +16,7 @@ public:
 
     void PrintTokenStream(std::vector<unsigned short>* tokenStream);
 
-    void SetScreen(Tigr *newScreen) {screen = newScreen;}
+    inline void SetScreen(Tigr *newScreen) {screen = newScreen;}
 
 private:
     Tigr *screen;
