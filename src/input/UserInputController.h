@@ -17,6 +17,7 @@
 
 #ifdef TERMINAL_EMULATE
 #include <curses.h>
+#include <vector>
 
 #endif
 
@@ -29,11 +30,10 @@ class UserInputController {
 
 public:
     UserInputController() : shiftPressed(false), alphaPressed(false),
-                            recallPressed(false){};
+                            recallPressed(false),screen(nullptr){};
 
     // listens for a user button press then returns the value of the button pressed
-    unsigned short GetUserInput(std::map<unsigned char, unsigned short>* buttonMap,Tigr *screen);
-
+    unsigned short GetUserInput(std::map<unsigned char, unsigned short>* buttonMap);
 
 
     bool GetShiftPressed()  {return shiftPressed;}
@@ -44,10 +44,14 @@ public:
     void SetAlphaPressed(bool value)  {alphaPressed = value;}
     void SetRecallPressed(bool value) {recallPressed = value;}
 
+    void SetScreen(Tigr* newScreen) {screen = newScreen;}
+
+
 
 
 private:
 
+    Tigr *screen;
 
     bool shiftPressed;
     bool alphaPressed;

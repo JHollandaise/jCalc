@@ -19,8 +19,8 @@ set(SOURCE_FILES
         src/input/InputParser.h
         src/core/FunctionStream.cpp
         src/core/FunctionStream.h
-        src/ErrorMgt/Error.cpp
-        src/ErrorMgt/Error.h
+        src/errorMgt/Error.cpp
+        src/errorMgt/Error.h
         src/init/TermInit.cpp
         src/init/TermInit.h
         src/init/Initialiser.cpp
@@ -44,7 +44,7 @@ set(SOURCE_FILES
         src/core/MathFunc.cpp
         src/core/MathFunc.h
         src/GUI/tigr.c
-        src/GUI/tigr.h)
+        src/GUI/tigr.h src/errorMgt/ErrorManager.cpp src/errorMgt/ErrorManager.h src/GUI/MenuStrings.h src/input/MenuPage.cpp src/input/MenuPage.h)
 
 add_executable(jCalc ${SOURCE_FILES})
 

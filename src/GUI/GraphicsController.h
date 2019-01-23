@@ -12,7 +12,14 @@
 class GraphicsController {
 
 public:
-    void PrintTokenStream(std::vector<unsigned short>* tokenStream,Tigr *screen);
+    GraphicsController():screen(nullptr){};
+
+    void PrintTokenStream(std::vector<unsigned short>* tokenStream);
+
+    void SetScreen(Tigr *newScreen) {screen = newScreen;}
+
+private:
+    Tigr *screen;
 };
 
 

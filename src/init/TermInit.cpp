@@ -7,7 +7,7 @@
 
 unsigned char TermInit::Initialise() {
 
-
+    // TODO: initiale tigr screen
 
     return 0;
 }

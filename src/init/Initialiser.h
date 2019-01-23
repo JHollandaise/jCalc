@@ -10,7 +10,7 @@
 
 #include "core/Calculator.h"
 #include "MbedInit.h"
-
+#include "ErrorMgt/ErrorManager.h"
 
 #ifdef TERMINAL_EMULATE
 
@@ -18,24 +18,29 @@
 
 #endif
 
-/* handles init of primary calculator components
+/**
+ * handles init of primary calculator components
  * calculator: handles calculation functionality
- * TermInit/MbedInit: handles user input/output for terminal/embedded platforms
+ *
  */
 
 class Initialiser {
 public:
-    Initialiser(): calculator(), returnError() {Initialise();};
+    Initialiser(): returnError(0) {Initialise();};
 
 private:
     Calculator calculator;
     int returnError;
 
+    // handles User IO depending on platform
     TermInit termInit;
     MbedInit mbedInit;
 
+
+    // TODO: aquire functionality with screen in termInit
     Tigr *screen;
 
+    // initialise screen and start mainloop
     void Initialise();
 
 };

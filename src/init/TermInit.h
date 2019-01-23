@@ -16,8 +16,7 @@ public:
 
     ~TermInit() {DeInitialise();};
 
-    // graphics screen for terminal emulation
-//    Tigr *screen;
+    // TODO: tigr screen init here
 
 private:
     unsigned char Initialise();

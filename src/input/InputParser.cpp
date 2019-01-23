@@ -27,13 +27,18 @@ unsigned char InputParser::AddToStream(unsigned short token, bool *inputMethod)
                     cursorPos = tokenStream.insert(cursorPos,token) + 1;
                     break;
                 case 0x2300 :
+                case 0x2400 :
                     // more interesting functions
+
+                    // stuff | stuff
+
                     if(token == 0x2300) {
-                        // FRAC
+                        // FRAC has the additional functionality of grabbing left
 
                         // get cursorPos index as insertions can corrupt iterators
-                        // and move 2 to the right to account for inserted elements
-                        auto cursorPosIndex = cursorPos - tokenStream.begin() + 2;
+                        auto cursorPosIndex(cursorPos - tokenStream.begin());
+                        // move 2 to the right to account for inserted elements
+                        cursorPosIndex += 2;
 
                         // insert FRAC separator
                         // and move to left of separator
@@ -47,23 +52,79 @@ unsigned char InputParser::AddToStream(unsigned short token, bool *inputMethod)
 
                         // move to after FRAC separator
                         cursorPos = tokenStream.begin() + cursorPosIndex;
+
+                        // frac( stuff , | stuff
+                    }
+                    else {
+                        // if a power function, insert xpowery function initiator
+                        if((token & 0xFF00U) == 0x2400) cursorPos = tokenStream.insert(cursorPos,0x2401) + 1;
+                        // if cubert, insert xrooty function initiator
+                        if(token  == 0x2306) cursorPos = tokenStream.insert(cursorPos,0x2307) + 1;
+                        // otherwise insert this function token
+                        else cursorPos = tokenStream.insert(cursorPos,token) + 1;
+
+                        // stuff func( | stuff
+                    }
+
+                    // we need to return here after insert
+                    auto savedPos = cursorPos;
+
+                    if( ( (token & 0xFF00) == 0x2300 && inputMethod )
+                    || token == 0x2401) {
+                        // with insert mode, grab sequence to right and place in first argument (excluding frac
+                        // which is in second pos)
+
                         // move cursor to end of right grab sequence
                         MoveOutOfPrimaryChain(true, cursorPos);
 
-                        // add func close at end of right grab sequence
-                        tokenStream.insert(cursorPos, 0x1501);
-
-                        // return cursor to rightful place
-                        cursorPos = tokenStream.begin() + cursorPosIndex;
-
-
-
-
-
+                        // stuff func( stuff |
+                        // or frac( stuff , stuff |
                     }
-                // TODO: default case
+
+
+                    // if square do pow of 2
+                    // stuff pow( 2 |
+                    if(token==0x2400) cursorPos = tokenStream.insert(cursorPos,0x1002) + 1;
+                    // if cube do pow of 3
+                    if(token==0x2403) cursorPos = tokenStream.insert(cursorPos,0x1003) + 1;
+                    // if reciprocal do pow -1
+                    if(token==0x2400) cursorPos = tokenStream.insert(cursorPos,{0x1300,0x1001}) + 2;
+
+                    if(token==0x2302 || token==0x2303 || token==0x2306 || token==0x2307 || token==0x230A ||
+                       token==0x230B) {
+                        // functions with >= 2 args (except frac)
+
+                        // insert separator and move one to right
+                        cursorPos =tokenStream.insert(cursorPos, 0x1402) + 1;
+
+                        // stuff func( stuff? , |
+                    }
+
+                    // if cubert do nthroot 3
+                    // stuff func( stuff? , 3 |
+                    if(token == 0x2306) cursorPos = tokenStream.insert(cursorPos,0x1003) + 1;
+
+                    if(token == 0x2302 || token == 0x230B) {
+                        // funcs with 3 args
+                        cursorPos =tokenStream.insert(cursorPos, 0x1402) + 1;
+
+                        // stuff func( stuff? , , |
+                    }
+
+                    // add func close at end
+                    // stuff func(stuff? (,,) ) |
+                    // or frac(stuff , stuff ) |
+                    tokenStream.insert(cursorPos, 0x1501);
+
+                    // return cursor to rightful place
+                    cursorPos = savedPos;
+
+                    break;
+                    // TODO: default case
             }
-    // TODO: default case (exception: unexpected token)
+        default:
+            break;
+            // TODO: default case (exception: unexpected token)
     }
 
     // TODO: error handling for AddToStream

@@ -4,6 +4,10 @@
 #include "MathFunc.h"
 
 unsigned long MathFunc::GCD(unsigned long u, unsigned long v) {
+    if(u&&!v) return u;
+    if(!u&&v) return v;
+    // undefined
+    if(!u&&!v) return 1;
     while ( v != 0) {
         unsigned long r = u % v;
         u = v;

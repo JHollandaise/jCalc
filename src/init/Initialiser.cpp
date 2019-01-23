@@ -5,6 +5,9 @@
 
 #include "Initialiser.h"
 
+/**
+ * Handles initialisation of tigrWindow and runs mainloop
+ */
 
 void Initialiser::  Initialise() {
 
@@ -13,7 +16,13 @@ void Initialiser::  Initialise() {
 #else
     mbedInit = MbedInit();
 #endif
+
     screen = tigrWindow(320, 240, "Hello", TIGR_2X);
+
+    // pass screen to calculator
+    calculator.AddScreen(screen);
+
+    // paste background
     tigrClear(screen, tigrRGB(221, 219, 155));
 
 
@@ -21,9 +30,9 @@ void Initialiser::  Initialise() {
     while (!tigrClosed(screen))
     {
 
+        calculator.Mainloop();
 
-        calculator.Mainloop(screen);
-
+        // push set frame to screen
         tigrUpdate(screen);
 
     }

@@ -29,7 +29,7 @@ namespace ButtonMapsBaseN {
     };
 
     static std::map<unsigned char,unsigned short> Shift {
-        //  Base Menu
+        //  Base MenuPage
             {2,0x5407},
         //  clear           insert          off
             {22,0x5405},    {23,0x5600},    {24,0x5700},

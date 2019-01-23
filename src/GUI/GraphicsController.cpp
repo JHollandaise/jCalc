@@ -9,7 +9,7 @@
 
 
 #ifdef TERMINAL_EMULATE
-void GraphicsController::PrintTokenStream(std::vector<unsigned short>* tokenStream,Tigr *screen) {
+void GraphicsController::PrintTokenStream(std::vector<unsigned short>* tokenStream) {
     // clear the window
     tigrClear(screen, tigrRGB(221, 219, 155));
     tigrPrint(screen, tfont, 120, 110, tigrRGB(0xff, 0xff, 0xff), "{ ");

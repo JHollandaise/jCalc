@@ -20,19 +20,21 @@
 // ensure S and D are unsigned
 template<typename N, typename S, typename D>
 struct SurdFrac{
-    SurdFrac<N,S,D>():n1(0),n2(0),s1(0),s2(0),d(0){};
+    SurdFrac<N,S,D>():n1(0),n2(0),s1(0),s2(0),d(1){};
     SurdFrac<N,S,D>(N _n1, N _n2, S _s1, S _s2, D _d):
-            n1(_n1),n2(_n2),s1(_s1),s2(_s2),d(_d){};
+            n1(_n1),n2(_n2),s1(_s1),s2(_s2),d(_d){SimplifyDenominator();
+                                                  if(d==0) throw std::bad_cast();};
     // init with FractionalApproximation
     explicit SurdFrac(std::tuple<long, unsigned long, double> fractionalApprox) :
-            n1((N) std::get<1>(fractionalApprox)), n2(0), s1(1), s2(0),
-            d((D) std::get<2>(fractionalApprox)) {
+            n1((N) std::get<0>(fractionalApprox)), n2(0), s1(1), s2(0),
+            d((D) std::get<1>(fractionalApprox)) {
         const long &numerator(std::get<0>(fractionalApprox));
         const unsigned long &denominator(std::get<1>(fractionalApprox));
         const double &error(std::get<2>(fractionalApprox));
 
         if (std::abs(numerator) > std::numeric_limits<N>::max() || denominator > std::numeric_limits<D>::max() || error > 0)
             throw std::bad_cast();
+        SimplifyDenominator();
 
     }
 
@@ -48,32 +50,39 @@ struct SurdFrac{
 
         auto newDenominator((D) MathFunc::LCM(d, rhs.d));
 
-        // first surds same
-        if (rhs.s1 == s1) {
-            if (std::abs(n1 * newDenominator / d + rhs.n1 * newDenominator / rhs.d) > std::numeric_limits<N>::max())
-                throw std::bad_cast();
+        if(rhs.s1) {
+            // no first surd
+            if (!s1) {
+                s1 = rhs.s1;
+                n1 = rhs.n1 * newDenominator / rhs.d;
+            }
+                // first surds same
+            else if (rhs.s1 == s1) {
+                if (std::abs(n1 * newDenominator / d + rhs.n1 * newDenominator / rhs.d) > std::numeric_limits<N>::max())
+                    throw std::bad_cast();
 
-            // sum first surd
-            n1 = (N)(n1 * newDenominator / d + rhs.n1 * newDenominator / rhs.d);
+                // sum first surd
+                n1 = (N) (n1 * newDenominator / d + rhs.n1 * newDenominator / rhs.d);
 
+            }
+                // otherwise is second spot open
+            else if (!s2) {
+                // move rhs.s1 into s2 spot
+                s2 = rhs.s1;
+                n2 = rhs.n1 * newDenominator / rhs.d;
+            }
+                // otherwise is same as s2
+            else if (rhs.s1 == s2) {
+                if (std::abs(n2 * newDenominator / d + rhs.n1 * newDenominator / rhs.d) > std::numeric_limits<N>::max())
+                    throw std::bad_cast();
+
+                // sum into second surd
+                n2 = (N) (n2 * newDenominator / d + rhs.n1 * newDenominator / rhs.d);
+
+            }
+                // otherwise no room at the inn
+            else throw std::bad_cast();
         }
-        // otherwise is second spot open
-        else if (!s2) {
-            // move rhs.s1 into s2 spot
-            s2 = rhs.s1;
-            n2 = rhs.n1;
-        }
-        // otherwise is same as s2
-        else if (rhs.s1 == s2) {
-            if (std::abs(n2 * newDenominator / d + rhs.n1 * newDenominator / rhs.d) > std::numeric_limits<N>::max() )
-                throw std::bad_cast();
-
-            // sum into second surd
-            n2 = (N)( n2 * newDenominator / d + rhs.n1 * newDenominator / rhs.d );
-
-        }
-        // otherwise no room at the inn
-        else throw std::bad_cast();
 
         // is there a rhs.s2 we need to jam in
         if (rhs.s2) {
@@ -89,7 +98,7 @@ struct SurdFrac{
             else if (!s2) {
                 // move there
                 s2 = rhs.s2;
-                n2 = rhs.n2;
+                n2 = rhs.n2 * newDenominator / rhs.d;
             }
             // otherwise is same as s2
             else if (rhs.s2 == s2) {
@@ -107,6 +116,7 @@ struct SurdFrac{
 
         // clean up
         SimplifyDenominator();
+        TidySurd();
 
         return *this;
 
@@ -135,10 +145,10 @@ struct SurdFrac{
 
         // get top products
         std::vector<std::tuple<unsigned long, long> > products{
-                {(unsigned) s1 * rhs.s1, n1 * rhs.n1},
-                {(unsigned) s1 * rhs.s2, n1 * rhs.n2},
-                {(unsigned) s2 * rhs.s1, n2 * rhs.n1},
-                {(unsigned) s2 * rhs.s2, n2 * rhs.n2}
+                {s1 * rhs.s1, n1 * rhs.n1},
+                {s1 * rhs.s2, n1 * rhs.n2},
+                {s2 * rhs.s1, n2 * rhs.n1},
+                {s2 * rhs.s2, n2 * rhs.n2}
         };
 
         // reduce surd products
@@ -267,7 +277,7 @@ struct SurdFrac{
     void SimplifyDenominator(){
         D devisor;
 
-        if ((devisor = (D) MathFunc::GCD({(unsigned) n1 , (unsigned) n2, d})) > 1) {
+        if ((devisor = (D) MathFunc::GCD({(unsigned) std::abs(n1) , (unsigned) std::abs(n2), d})) > 1) {
             n1 /= devisor;
             n2 /= devisor;
             d /= devisor;
